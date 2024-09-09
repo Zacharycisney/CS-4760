@@ -21,9 +21,24 @@ namespace CS4760Group1.Pages.Colleges
 
         public IList<College> College { get;set; } = default!;
 
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
         public async Task OnGetAsync()
         {
-            College = await _context.College.ToListAsync();
+            var colleges = from c in _context.College
+                         select c;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                colleges = colleges.Where(c => c.Dean != null && c.Dean.Contains(SearchString));
+            }
+
+            College = await colleges.ToListAsync();
         }
+
+        //public async Task OnGetAsync()
+        //{
+        //    College = await _context.College.ToListAsync();
+        //}
     }
 }
