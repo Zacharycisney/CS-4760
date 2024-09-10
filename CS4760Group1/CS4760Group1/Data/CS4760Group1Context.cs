@@ -16,5 +16,6 @@ namespace CS4760Group1.Data
 
         public DbSet<CS4760Group1.Models.College> College { get; set; } = default!;
         public DbSet<CS4760Group1.Models.Department> Department { get; set; } = default!;
+        public DbSet<CS4760Group1.Models.User> User { get; set; } = default!;
     }
 }
