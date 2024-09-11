@@ -14,7 +14,24 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<CS4760Group1Context>();
 
+    try
+    {
+        // Try to query the database to see if it works
+        if (context.College.Any())
+        {
+            Console.WriteLine("Database connected successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Database connected, but no records found.");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error connecting to the database: {ex.Message}");
+    }
     //SeedData.Initialize(services);
 }
 
