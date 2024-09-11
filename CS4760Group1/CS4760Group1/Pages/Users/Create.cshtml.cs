@@ -12,26 +12,29 @@ namespace CS4760Group1.Pages.Users
 {
     public class CreateModel : PageModel
     {
-        private readonly CS4760Group1.Data.CS4760Group1Context _context;
+        private readonly CS4760Group1Context _context;
 
-        public CreateModel(CS4760Group1.Data.CS4760Group1Context context)
+        public CreateModel(CS4760Group1Context context)
         {
             _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-            return Page();
+            User = new User(); // Initialize the User instance
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public User User { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        public List<Role> Roles { get; set; } = new List<Role>();
+
+        public void OnGet()
+        {
+            Roles = Enum.GetValues(typeof(Role)).Cast<Role>().ToList();
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                Roles = Enum.GetValues(typeof(Role)).Cast<Role>().ToList(); // Ensure roles are populated again on invalid state
                 return Page();
             }
 

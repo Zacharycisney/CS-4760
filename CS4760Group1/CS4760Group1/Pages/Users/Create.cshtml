@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Pages/_ViewImports.cshtml";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Create</h1>
@@ -36,7 +36,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="User.Role" class="control-label"></label>
-                <select asp-for="User.Role" class="form-control"></select>
+                <select asp-for="User.Role" class="form-control">
+                    <option value="">Select a role</option>
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role">@role</option>
+                    }
+                </select>
                 <span asp-validation-for="User.Role" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -61,5 +67,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
