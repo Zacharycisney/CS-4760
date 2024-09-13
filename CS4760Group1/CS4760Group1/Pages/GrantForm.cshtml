@@ -1,0 +1,55 @@
+﻿@page
+@model CS4760Group1.Pages.GrantFormModel
+@{
+}
+
+<h1>Grant Form</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Title:</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">PI:</label> <!-- Eventually grab who's logged in and display here' -->
+                <select class="form-control">
+                    <option value="user">User</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Description:</label> <!-- Turn into textarea -->
+                <textarea class="form-control"></textarea>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Grant type:</label>
+                <select class="form-control">
+                    <option value="travel">Travel grant</option>
+                    <option value="spring">Spring grant</option>
+                    <option value="summer">Summer grant</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Amount requested:</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
