@@ -11,37 +11,37 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label class="control-label">Title:</label>
-                <input class="form-control" />
-                <span class="text-danger"></span>
+                <label asp-for="GrantForm.Title" class="control-label">Title:</label>
+                <input asp-for="GrantForm.Title" class="form-control" />
+                <span asp-validation-for="GrantForm.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">PI:</label> <!-- Eventually grab who's logged in and display here' -->
-                <select class="form-control">
+                <label asp-for="GrantForm.PI" class="control-label">PI:</label> <!-- Eventually grab who's logged in and display here' -->
+                <select asp-for="GrantForm.PI" class="form-control">
                     <option value="user">User</option>
                 </select>
-                <span class="text-danger"></span>
+                <span asp-validation-for="GrantForm.PI" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Description:</label> <!-- Turn into textarea -->
-                <textarea class="form-control"></textarea>
-                <span class="text-danger"></span>
+                <label asp-for="GrantForm.Description" class="control-label">Description:</label>
+                <textarea asp-for="GrantForm.Description" class="form-control"></textarea>
+                <span asp-validation-for="GrantForm.Description" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label class="control-label">Grant type:</label>
-                <select class="form-control">
+                <label asp-for="GrantForm.GrantType" class="control-label">Grant type:</label>
+                <select asp-for="GrantForm.GrantType" class="form-control">
                     <option value="travel">Travel grant</option>
                     <option value="spring">Spring grant</option>
                     <option value="summer">Summer grant</option>
                 </select>
-                <span class="text-danger"></span>
+                <span asp-validation-for="GrantForm.GrantType" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label class="control-label">Amount requested:</label> <!-- Add validation for only numbers -->
-                <input class="form-control" />
-                <span class="text-danger"></span>
+                <label asp-for="GrantForm.AmountRequested" class="control-label">Amount requested:</label> <!-- Add validation for only numbers -->
+                <input asp-for="GrantForm.AmountRequested" class="form-control" />
+                <span asp-validation-for="GrantForm.AmountRequested" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
