@@ -43,11 +43,12 @@ h1 {
 }
 
 .grant-status {
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.9em;
+    padding: 3px 8px; /* Reduce padding for a tighter fit */
+    border-radius: 12px; /* Adjust the rounded border */
+    font-size: 0.8em; /* Decrease font size */
     text-transform: uppercase;
     font-weight: bold;
+    white-space: nowrap; /* Ensure the text doesn't wrap to multiple lines */
 }
 
 .not-reviewed {
