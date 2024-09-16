@@ -4,7 +4,42 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/homepage.css">
+</head>
+
+<body>
+
+    <!-- Applied Grants Section -->
+    <div id="AppliedGrants">
+
+        <h1>Applied Grants</h1>
+
+        <div class="grants-container">
+            @foreach (var grant in Model.Grants)
+            {
+                <div class="grant-card">
+                    <div class="grant-header">
+                        <h2 class="grant-title">@grant.Title</h2>
+                        <span class="grant-status @grant.StatusClass">@grant.Status</span>
+                    </div>
+                    <p>Duration: @grant.Duration months</p>
+                    <p>Amount: $@grant.Amount</p>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <!-- Approved Grants Section -->
+    <div id="ApprovedGrants">
+
+    </div>
+
+    <!-- Upcoming Grants Section -->
+    <div id="UpcomingDeadlines">
+
+    </div>
+
+</body>

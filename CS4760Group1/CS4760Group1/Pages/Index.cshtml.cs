@@ -12,9 +12,46 @@ namespace CS4760Group1.Pages
             _logger = logger;
         }
 
+        public List<Grant> Grants { get; set; }
+
         public void OnGet()
         {
+            Grants = new List<Grant>
+        {
+            new Grant
+            {
+                Title = "Grant for Education Initiative",
+                Status = "Not Reviewed",
+                Duration = 12,
+                Amount = 50000,
+                StatusClass = "not-reviewed"
+            },
+            new Grant
+            {
+                Title = "Healthcare Research Grant",
+                Status = "Under Review",
+                Duration = 24,
+                Amount = 150000,
+                StatusClass = "under-review"
+            },
+            new Grant
+            {
+                Title = "Community Development Fund",
+                Status = "Approved",
+                Duration = 6,
+                Amount = 25000,
+                StatusClass = "approved"
+            }
+        };
+        }
 
+        public class Grant
+        {
+            public string Title { get; set; }
+            public string Status { get; set; }
+            public int Duration { get; set; }
+            public decimal Amount { get; set; }
+            public string StatusClass { get; set; }
         }
     }
 }
