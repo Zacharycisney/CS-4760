@@ -13,6 +13,8 @@ namespace CS4760Group1.Pages
         }
 
         public List<Grant> Grants { get; set; }
+        public List<Deadline> Deadlines { get; set; }
+
 
         public void OnGet()
         {
@@ -46,6 +48,23 @@ namespace CS4760Group1.Pages
                 StatusClass = "approved"
             }
         };
+
+            Deadlines = new List<Deadline>
+            {
+                new Deadline{
+                    GrantType = "Travel Grant",
+                    Date = new DateTime(2024, 10, 10)
+                },
+                new Deadline{
+                    GrantType = "Spring Grant",
+                    Date = new DateTime(2024, 10, 10)
+                },
+                new Deadline{
+                    GrantType = "Summer Grant",
+                    Date = new DateTime(2024, 10, 10)
+                }
+            };
+
         }
 
         public class Grant
@@ -57,5 +76,12 @@ namespace CS4760Group1.Pages
             public decimal Amount { get; set; }
             public string StatusClass { get; set; }
         }
+
+        public class Deadline
+        {
+            public string GrantType { get; set; }
+            public DateTime Date { get; set; }
+        }
+
     }
 }

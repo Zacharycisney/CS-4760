@@ -38,9 +38,25 @@
 
     </div>
 
-    <!-- Upcoming Grants Section -->
+     <!-- Upcoming Grants Section -->
     <div id="UpcomingDeadlines">
 
+        <h1>Upcoming Deadlines</h1>
+
+        <div class="grants-container">
+
+            @foreach (var deadline in Model.Deadlines)
+            {
+                <div class="grant-card">
+                    <div class="deadline-header">
+                        <h2 class="grant-type">@deadline.GrantType</h2>
+                    </div>
+                    <p>Due: @deadline.Date</p>
+                </div>
+            }
+        </div>
     </div>
+
+
 
 </body>
