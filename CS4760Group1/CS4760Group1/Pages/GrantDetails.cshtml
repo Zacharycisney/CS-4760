@@ -1,0 +1,20 @@
+﻿@page "{id:int}"
+@model CS4760Group1.Pages.GrantDetailsModel
+@{
+    ViewData["Title"] = "Grant Details";
+}
+
+<h1>Grant Details for: @Model.Grant.Title</h1>
+
+<div>
+    <p><strong>Title:</strong> @Model.Grant.Title</p>
+    <p><strong>Status:</strong> @Model.Grant.Status</p>
+    <p><strong>Type:</strong> @Model.Grant.Type</p>
+    <p><strong>Amount:</strong> $@Model.Grant.Amount.00</p>
+    <p><strong>Duration:</strong> @Model.Grant.Duration months</p>
+    <p><strong>Description:</strong> @Model.Grant.Description</p>
+    <p><strong>Start Date:</strong> @Model.Grant.StartDate.ToShortDateString()</p>
+    <p><strong>End Date:</strong> @Model.Grant.EndDate.ToShortDateString()</p>
+</div>
+
+<a asp-page="./GrantReview">Back to Grant Review</a>

@@ -1,0 +1,42 @@
+﻿@page
+@model CS4760Group1.Pages.GrantReviewModel
+@{
+}
+
+<h1>Grant Review</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grants[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grants[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grants[0].PI)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grant in Model.Grants)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => grant.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => grant.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => grant.PI)
+                </td>
+                <td>
+                    <a asp-page="./GrantDetails" asp-route-id="@grant.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
