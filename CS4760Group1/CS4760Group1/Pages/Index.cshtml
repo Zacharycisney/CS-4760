@@ -17,7 +17,7 @@
         <h1>Applied Grants</h1>
 
         <div class="grants-container">
-            @foreach (var grant in Model.Grants)
+            @foreach (var grant in Model.Grants.Where(g => g.Status == "Under Review" || g.Status == "Not Reviewed"))
             {
                 <div class="grant-card">
                     <div class="grant-header">
@@ -35,6 +35,24 @@
 
     <!-- Approved Grants Section -->
     <div id="ApprovedGrants">
+
+        <h1>Approved Grants</h1>
+
+
+        <div class="grants-container">
+            @foreach (var grant in Model.Grants.Where(g => g.Status == "Approved"))
+            {
+                <div class="grant-card">
+                    <div class="grant-header">
+                        <h2 class="grant-title">@grant.Title</h2>
+                        <span class="grant-status @grant.StatusClass">@grant.Status</span>
+                    </div>
+                    <p>Type: @grant.Type</p>
+                    <p>Duration: @grant.Duration months</p>
+                    <p>Amount: $@grant.Amount.00</p>
+                </div>
+            }
+        </div>
 
     </div>
 
