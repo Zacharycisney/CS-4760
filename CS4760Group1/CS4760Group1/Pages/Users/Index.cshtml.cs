@@ -23,7 +23,7 @@ namespace CS4760Group1.Pages.Users
 
         public async Task OnGetAsync()
         {
-            User = await _context.User.ToListAsync();
+            User = await _context.Users.ToListAsync();
         }
     }
 }

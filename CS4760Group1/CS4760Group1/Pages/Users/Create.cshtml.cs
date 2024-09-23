@@ -38,7 +38,7 @@ namespace CS4760Group1.Pages.Users
                 return Page();
             }
 
-            _context.User.Add(User);
+            _context.Users.Add(User);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
