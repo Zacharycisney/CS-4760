@@ -4,6 +4,8 @@ namespace CS4760Group1.Models
 {
     public class GrantForm
     {
+        public int Id { get; set; }
+
         [Required]
         public string? Title { get; set; }
 
