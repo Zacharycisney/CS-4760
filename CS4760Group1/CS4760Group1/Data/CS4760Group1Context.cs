@@ -18,6 +18,7 @@ namespace CS4760Group1.Data
 
         public DbSet<College> College { get; set; } = default!;
         public DbSet<Department> Department { get; set; } = default!;
+        public DbSet<GrantForm> GrantForm { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

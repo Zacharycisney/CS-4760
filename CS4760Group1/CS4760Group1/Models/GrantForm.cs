@@ -16,7 +16,10 @@ namespace CS4760Group1.Models
         [Required]
         public string? GrantType { get; set; }
 
-        [RegularExpression(@"^[1-9][0-9]*$"), Required]
-        public int AmountRequested { get; set; }
+        [RegularExpression(@"^(?!0(\.0+)?$)([1-9][0-9]{0,16}|0)(\.[0-9]{1,2})?$"), Required]
+        public decimal AmountRequested { get; set; }
+
+        [Required]
+        public string? GrantStatus { get; set; }
     }
 }
