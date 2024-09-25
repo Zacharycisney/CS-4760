@@ -1,0 +1,65 @@
+﻿@page
+@model CS4760Group1.Pages.CommitteeReviewModel
+@{
+}
+
+
+
+
+<div class="container">
+    
+    <h1>Committee Review</h1>
+
+    <div id="currentMembers">
+        <h4>Committee Members:</h4>
+        <ul>
+            <li>John Smith - Harvard University Harvard Law School</li>
+        </ul>
+    </div>
+
+    <div id="filterSection">
+        <div class="form-group">
+            <label for="collegeSelect">College:</label>
+            <select id="collegeSelect" class="form-control">
+                <option value="">-- Select a College --</option>
+                <option value="1">Harvard University</option>
+                <option value="1">Weber State University</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="departmentSelect">Department:</label>
+            <select id="departmentSelect" class="form-control">
+                <option value="">-- Select a Department --</option>
+                <option value="">Harvard Law School</option>
+                <option value="">Computer Science</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="potentialMembers">
+        <h4>Potential Members:</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>College</th>
+                    <th>Department</th>
+                    <th>Add</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Jack</td>
+                        <td>Hacker</td>
+                        <td>Weber State University</td>
+                        <td>Computer Science</td>
+                        <td>
+                            <button class="btn btn-primary" asp-action="AddMember">Add</button>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
