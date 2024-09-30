@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/_ViewImports.cshtml";
 }
 
 <h1>Create</h1>
@@ -13,6 +14,11 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Department.CollegeID" class="control-label"></label>
+                <input asp-for="Department.CollegeID" class="form-control" />
+                <span asp-validation-for="Department.CollegeID" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Department.Name" class="control-label"></label>
                 <input asp-for="Department.Name" class="form-control" />
@@ -27,11 +33,6 @@
                 <label asp-for="Department.Location" class="control-label"></label>
                 <input asp-for="Department.Location" class="form-control" />
                 <span asp-validation-for="Department.Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Department.College" class="control-label"></label>
-                <input asp-for="Department.College" class="form-control" />
-                <span asp-validation-for="Department.College" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
