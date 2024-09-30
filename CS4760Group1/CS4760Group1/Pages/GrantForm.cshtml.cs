@@ -30,19 +30,14 @@ namespace CS4760Group1.Pages
         }
 
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
-            if (!ModelState.IsValid) {
-                //checks that the page is valid based on specified attributes
-                //returns the page with the error messages if not valid
-                return Page();
-            }
-
+           
             //Post as not reviewed
             GrantForm.GrantStatus = "Not Reviewed";
 
             _context.GrantForm.Add(GrantForm);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("GrantForm"); //Redirect to index page after submission
+            return RedirectToPage("Index"); //Redirect to index page after submission
         }
     }
 }
