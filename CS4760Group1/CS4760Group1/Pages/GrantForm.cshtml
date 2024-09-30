@@ -29,19 +29,19 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Grant.GrantType" class="control-label">Grant type:</label> <!-- Change to auto populate with grants currently available? -->
-                <select asp-for="Grant.GrantType" class="form-control">
-                    <option value="travel">Travel grant</option>
-                    <option value="spring">Spring grant</option>
-                    <option value="summer">Summer grant</option>
+                <label asp-for="Grant.Type" class="control-label">Grant type:</label> <!-- Change to auto populate with grants currently available? -->
+                <select asp-for="Grant.Type" class="form-control">
+                    <option value="rspg">RSPG</option>
+                    <option value="arcc">ARCC</option>
+                    <option value="our">OUR</option>
                 </select>
-                <span asp-validation-for="Grant.GrantType" class="text-danger"></span>
+                <span asp-validation-for="Grant.Type" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Grant.AmountRequested" class="control-label">Amount requested:</label>
-                <input asp-for="Grant.AmountRequested" class="form-control" />
-                <span asp-validation-for="Grant.AmountRequested" class="text-danger"></span>
+                <label asp-for="Grant.Amount" class="control-label">Amount requested:</label>
+                <input asp-for="Grant.Amount" class="form-control" />
+                <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
