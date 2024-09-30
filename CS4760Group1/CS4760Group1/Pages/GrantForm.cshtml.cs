@@ -18,11 +18,11 @@ namespace CS4760Group1.Pages
         public GrantFormModel(CS4760Group1.Data.CS4760Group1Context context)
         {
             _context = context;
-            GrantForm = new GrantForm();
+            Grant = new Grant();
         }
 
         [BindProperty]
-        public GrantForm GrantForm { get; set; }
+        public Grant Grant { get; set; }
 
 
         public void OnGet()
@@ -32,9 +32,9 @@ namespace CS4760Group1.Pages
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
            
             //Post as not reviewed
-            GrantForm.GrantStatus = "Not Reviewed";
+            Grant.Status = "Not Reviewed";
 
-            _context.GrantForm.Add(GrantForm);
+            _context.Grant.Add(Grant);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index"); //Redirect to index page after submission

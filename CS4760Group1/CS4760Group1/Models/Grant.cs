@@ -2,7 +2,7 @@
 
 namespace CS4760Group1.Models
 {
-    public class GrantForm
+    public class Grant
     {
         public int Id { get; set; }
 
@@ -22,6 +22,6 @@ namespace CS4760Group1.Models
         public decimal AmountRequested { get; set; }
 
         [Required]
-        public string? GrantStatus { get; set; }
+        public string? Status { get; set; }
     }
 }

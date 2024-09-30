@@ -12,36 +12,36 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="GrantForm.Title" class="control-label">Title:</label>
-                <input asp-for="GrantForm.Title" class="form-control" />
-                <span asp-validation-for="GrantForm.Title" class="text-danger"></span>
+                <input asp-for="Grant.Title" class="form-control" />
+                <span asp-validation-for="Grant.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GrantForm.PI" class="control-label">PI:</label> <!-- Change to auto populate with who's logged in -->
-                <select asp-for="GrantForm.PI" class="form-control">
+                <label asp-for="Grant.PI" class="control-label">PI:</label> <!-- Change to auto populate with who's logged in -->
+                <select asp-for="Grant.PI" class="form-control">
                     <option value="user">User</option>
                 </select>
-                <span asp-validation-for="GrantForm.PI" class="text-danger"></span>
+                <span asp-validation-for="Grant.PI" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GrantForm.Description" class="control-label">Description:</label>
-                <textarea asp-for="GrantForm.Description" class="form-control"></textarea>
-                <span asp-validation-for="GrantForm.Description" class="text-danger"></span>
+                <label asp-for="Grant.Description" class="control-label">Description:</label>
+                <textarea asp-for="Grant.Description" class="form-control"></textarea>
+                <span asp-validation-for="Grant.Description" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="GrantForm.GrantType" class="control-label">Grant type:</label> <!-- Change to auto populate -->
-                <select asp-for="GrantForm.GrantType" class="form-control">
+                <label asp-for="Grant.GrantType" class="control-label">Grant type:</label> <!-- Change to auto populate with grants currently available? -->
+                <select asp-for="Grant.GrantType" class="form-control">
                     <option value="travel">Travel grant</option>
                     <option value="spring">Spring grant</option>
                     <option value="summer">Summer grant</option>
                 </select>
-                <span asp-validation-for="GrantForm.GrantType" class="text-danger"></span>
+                <span asp-validation-for="Grant.GrantType" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="GrantForm.AmountRequested" class="control-label">Amount requested:</label>
-                <input asp-for="GrantForm.AmountRequested" class="form-control" />
-                <span asp-validation-for="GrantForm.AmountRequested" class="text-danger"></span>
+                <label asp-for="Grant.AmountRequested" class="control-label">Amount requested:</label>
+                <input asp-for="Grant.AmountRequested" class="form-control" />
+                <span asp-validation-for="Grant.AmountRequested" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
