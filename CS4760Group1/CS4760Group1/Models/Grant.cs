@@ -2,7 +2,7 @@
 
 namespace CS4760Group1.Models
 {
-    public class GrantForm
+    public class Grant
     {
         public int Id { get; set; }
 
@@ -16,12 +16,12 @@ namespace CS4760Group1.Models
         public string? Description { get; set; }
 
         [Required]
-        public string? GrantType { get; set; }
+        public string? Type { get; set; }
 
         [RegularExpression(@"^(?!0(\.0+)?$)([1-9][0-9]{0,16}|0)(\.[0-9]{1,2})?$"), Required]
-        public decimal AmountRequested { get; set; }
+        public decimal Amount { get; set; }
 
         [Required]
-        public string? GrantStatus { get; set; }
+        public string? Status { get; set; }
     }
 }
