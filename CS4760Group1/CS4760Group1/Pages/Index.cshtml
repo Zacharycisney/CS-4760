@@ -22,10 +22,13 @@
                 <div class="grant-card">
                     <div class="grant-header">
                         <h2 class="grant-title">@grant.Title</h2>
-                        <span class="grant-status @grant.StatusClass">@grant.Status</span>
+                        <span class ="grant-status @Model.GetStatusClass(grant.Status)">@grant.Status</span>
                     </div>
                     <p>Type: @grant.Type</p>
-                    <p>Duration: @grant.Duration months</p>
+
+                    <!--<p>Duration: grant.Duration months</p>--> <!-- Evaluate how to deal with duration and dates-->
+                    <p>Duration: NA</p>
+
                     <p>Amount: $@grant.Amount.00</p>
                 </div>
             }
@@ -45,10 +48,13 @@
                 <div class="grant-card">
                     <div class="grant-header">
                         <h2 class="grant-title">@grant.Title</h2>
-                        <span class="grant-status @grant.StatusClass">@grant.Status</span>
+                        <span class="grant-status @Model.GetStatusClass(grant.Status)">@grant.Status</span>
                     </div>
                     <p>Type: @grant.Type</p>
-                    <p>Duration: @grant.Duration months</p>
+
+                    <!--<p>Duration: grant.Duration months</p>--> <!-- Evaluate how to deal with duration and dates-->
+                    <p>Duration: NA</p>
+                    
                     <p>Amount: $@grant.Amount.00</p>
                 </div>
             }
