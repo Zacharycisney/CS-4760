@@ -1,42 +1,54 @@
 ﻿@page
 @model CS4760Group1.Pages.GrantReviewModel
 @{
+    ViewData["Title"] = "Grant Review";
 }
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/grantreview.css">
+</head>
 
 <h1>Grant Review</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Grants[0].Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Grants[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Grants[0].PI)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var grant in Model.Grants)
-        {
+<div class="button-container">
+    <button onclick="location.href='?grantType=rspg'">RSPG</button>
+    <button onclick="location.href='?grantType=arcc'">ARCC</button>
+    <button onclick="location.href='?grantType=our'">OUR</button>
+</div>
+
+
+@if (Model.Grants.Count == 0)
+{
+    <p>Select a Grant Type</p>
+}
+else
+{
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => grant.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => grant.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => grant.PI)
-                </td>
-                <td>
-                    <a asp-page="./GrantDetails" asp-route-id="@grant.Id">Details</a>
-                </td>
+                <th>Title</th>
+                <th>Principal Investigator (PI)</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Review</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var grant in Model.Grants)
+            {
+                <tr>
+                    <td>@grant.Title</td>
+                    <td>@grant.PI</td>
+                    <td>@grant.Type</td>
+                    <td>@grant.Status</td>
+                    <td>
+                        <!-- "Review" button linking to detailed review page -->
+                        <a class="btn-review" asp-page="./GrantDetails" asp-route-id="@grant.Id">Review</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

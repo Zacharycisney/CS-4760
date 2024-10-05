@@ -1,3 +1,4 @@
+using CS4760Group1.Data;
 using CS4760Group1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -6,41 +7,36 @@ using static CS4760Group1.Pages.IndexModel;
 
 namespace CS4760Group1.Pages
 {
-    public class GrantReviewModel(CS4760Group1.Data.CS4760Group1Context context) : PageModel
+    public class GrantReviewModel : PageModel
     {
-        private readonly CS4760Group1.Data.CS4760Group1Context _context = context;
+        private readonly CS4760Group1Context _context;
 
-        public IList<Models.Grant> Grants { get; set; } = default!;
+        // Ensure the context is injected through the constructor
+        public GrantReviewModel(CS4760Group1.Data.CS4760Group1Context context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));  // Add null check for safety
+        }
+
+        public IList<Grant> Grants { get; set; } = default!;
+
         [BindProperty(SupportsGet = true)]
-        public string? SearchString { get; set; }
+        public string? GrantType { get; set; }
 
         public async Task OnGetAsync()
         {
-            var grants = from c in _context.Grant
-                           select c;
-            if (grants.Any())
+            if (!string.IsNullOrEmpty(GrantType))
             {
+                var grants = from c in _context.Grant
+                             where c.Type == GrantType
+                             select c;
+
                 Grants = await grants.ToListAsync();
             }
+            else
+            {
+                // If GrantType is null or empty, Grants remains empty
+                Grants = new List<Grant>();
+            }
         }
-
-        //public void OnGet()
-        //{
-        //    Grants = new List<Grant>
-        //    {
-        //        new Grant { Id = 1,Type= "RSPG",  Title = "Grant for Education Initiative", PI = "User" },
-        //        new Grant { Id = 2, Type= "OUR", Title = "Healthcare Research Grant",  PI = "User" },
-        //        new Grant { Id = 3, Type= "ARCC", Title = "Community Development Fund", PI = "User" }
-        //    };
-        //}
-
-        //public class Grant
-        //{
-        //    public int Id { get; set; }
-        //    public string Type  { get; set; }
-        //    public string Title { get; set; }
-        //    public string PI { get; set; }
-        //}
     }
-    
 }
