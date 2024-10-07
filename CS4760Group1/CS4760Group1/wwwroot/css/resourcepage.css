@@ -1,0 +1,37 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.budget-table th, .budget-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.budget-table th {
+    background-color: #f2f2f2;
+}
+
+.header {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+}
+
+.center-table-container {
+    display: flex;
+    justify-content: center; /* Centers the table horizontally */
+    margin-top: 20px; /* Optional: adds space above the table */
+}
