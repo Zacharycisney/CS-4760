@@ -24,6 +24,9 @@ namespace CS4760Group1.Pages
         [BindProperty]
         public Grant Grant { get; set; }
 
+        [BindProperty]
+        public IFormFile GrantUpload { get; set; }
+
 
         public void OnGet()
         {
@@ -31,10 +34,29 @@ namespace CS4760Group1.Pages
 
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
            
-            //Post as not reviewed
+            //Submit grant to Grant table
             Grant.Status = "Not Reviewed";
 
             _context.Grant.Add(Grant);
+            await _context.SaveChangesAsync();
+
+            //Submit file to GrantFile table
+
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "grant_files", GrantUpload.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await GrantUpload.CopyToAsync(stream);
+            }
+
+            var grantFile = new GrantFile
+            {
+                GrantID = Grant.Id,
+                FileName = GrantUpload.FileName,
+                Location = filePath
+            };
+
+            _context.GrantFile.Add(grantFile);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index"); //Redirect to index page after submission
