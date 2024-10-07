@@ -12,28 +12,53 @@ namespace CS4760Group1.Pages.Departments
 {
     public class CreateModel : PageModel
     {
-        private readonly CS4760Group1.Data.CS4760Group1Context _context;
+        private readonly CS4760Group1Context _context;
 
-        public CreateModel(CS4760Group1.Data.CS4760Group1Context context)
+        public CreateModel(CS4760Group1Context context)
         {
             _context = context;
         }
 
+        [BindProperty]
+        public int SelectedCollegeId { get; set; }
+
+        public List<SelectListItem> CollegeList { get; set; }
+
+        [BindProperty]
+        public Department Department { get; set; } = new Department();
+
         public IActionResult OnGet()
         {
+            // Fetch the list of colleges from the database
+            CollegeList = _context.College
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
+                })
+                .ToList();
+
             return Page();
         }
 
-        [BindProperty]
-        public Department Department { get; set; } = default!;
-
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                // Reload the colleges list if validation fails
+                CollegeList = _context.College
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Name
+                    })
+                    .ToList();
+
                 return Page();
             }
+
+            // Set the selected CollegeID for the new department
+            Department.CollegeID = SelectedCollegeId;
 
             _context.Department.Add(Department);
             await _context.SaveChangesAsync();
