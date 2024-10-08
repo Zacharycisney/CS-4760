@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c16WcUVQeJdsRvH1OxGDJvOUvyVJ+Xu7xQ2O34VQAko=",
+  "Hash": "Se/n6ATpHkLI/jzL1NCcImc2Wf+5UGrjYUXMRLO6ddE=",
   "Source": "CS4760Group1",
   "BasePath": "_content/CS4760Group1",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CS4760Group1.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\GrantReview.css",
+      "SourceId": "CS4760Group1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\",
+      "BasePath": "_content/CS4760Group1",
+      "RelativePath": "css/GrantReview.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\GrantReview.css"
     },
     {
       "Identity": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\homepage.css",
