@@ -42,6 +42,7 @@ namespace CS4760Group1.Pages
 
             //Submit file to GrantFile table
 
+            //path to save file
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "grant_files", GrantUpload.FileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -49,6 +50,7 @@ namespace CS4760Group1.Pages
                 await GrantUpload.CopyToAsync(stream);
             }
 
+            //object to submit to table
             var grantFile = new GrantFile
             {
                 GrantID = Grant.Id,
