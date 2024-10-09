@@ -8,7 +8,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Grant.Title" class="control-label">Title:</label>
@@ -43,6 +43,11 @@
                 <input asp-for="Grant.Amount" class="form-control" />
                 <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="GrantUpload">Upload Grant File:</label>
+                <input type="file" name="GrantUpload" class="form-control" />
+            </div>
+            <div></div>
             <div>
                 <a asp-page="Resource">View Resources</a>
             </div>

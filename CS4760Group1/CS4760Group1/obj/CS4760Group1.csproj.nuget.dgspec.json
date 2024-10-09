@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {}
+    "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {
+    "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
+        "projectUniqueName": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
         "projectName": "CS4760Group1",
-        "projectPath": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
-        "packagesPath": "C:\\Users\\zacci\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\",
+        "projectPath": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
+        "packagesPath": "C:\\Users\\carsonmoore\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zacci\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\carsonmoore\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

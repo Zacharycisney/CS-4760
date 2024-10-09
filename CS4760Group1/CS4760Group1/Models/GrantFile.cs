@@ -5,13 +5,18 @@ namespace CS4760Group1.Models
 {
     public class GrantFile
     {
-        [Key]
-        public int FileID { get; set; } //Change this in the db to auto increment
+        //[Key]
+        public int Id { get; set; }  // This is auto-increment by default with EF
 
-        public int GrantID;
+        [Required]
+        public int GrantID { get; set; }  // Foreign key to the Grant table
 
-        public string? FileName;
+        [Required]
+        public string FileName { get; set; }  // Name of the uploaded file
 
-        public string? Location;
+        [Required]
+        public string FilePath { get; set; }  // Path where the file is stored
+
+        public Grant Grant { get; set; }  // Navigation property
     }
 }
