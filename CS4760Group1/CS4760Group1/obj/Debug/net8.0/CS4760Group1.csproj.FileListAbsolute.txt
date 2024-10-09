@@ -824,3 +824,8 @@ C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group
 C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\obj\Debug\net8.0\CS4760Group1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

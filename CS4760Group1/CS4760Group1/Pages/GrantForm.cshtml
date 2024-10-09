@@ -43,9 +43,20 @@
                 <input asp-for="Grant.Amount" class="form-control" />
                 <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
-            <div>
-                <a asp-page="Resource">View Resources</a>
+            <div class="form-group">
+                <label for="file">Upload File:</label>
+                <input type="file" name="file" class="form-control" />
             </div>
+
+            <!-- Other form fields -->
+            <!--
+             <div class="form-group">
+                 <input type="submit" value="Create" class="btn btn-primary" />
+             </div>
+             <div>
+                 <a asp-page="Resource">View Resources</a>
+             </div>
+            -->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

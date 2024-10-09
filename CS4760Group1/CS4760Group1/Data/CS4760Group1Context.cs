@@ -20,6 +20,8 @@ namespace CS4760Group1.Data
         public DbSet<Department> Department { get; set; } = default!;
         public DbSet<Grant> Grant { get; set; } = default!;
 
+        public DbSet<GrantFile> GrantFile { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); // Ensure Identity schema is configured
