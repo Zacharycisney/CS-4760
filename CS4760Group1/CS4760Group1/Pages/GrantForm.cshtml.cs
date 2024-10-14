@@ -28,11 +28,16 @@ namespace CS4760Group1.Pages
 
         [BindProperty]
         public Grant Grant { get; set; }
+        public List<SelectListItem> UserList { get; set; }
+
+
         [BindProperty]
         public IFormFile GrantUpload { get; set; }
         public List<GrantType> AppliedGrant { get; set; }
 
 
+
+        public void OnGet()
 
         public IList<Department> Department { get; set; } = new List<Department>();
 
@@ -44,6 +49,7 @@ namespace CS4760Group1.Pages
 
         public async Task OnGet()
         {
+            PopulateUserList();
             Department = await _context.Department.ToListAsync();
             College = await _context.College.ToListAsync();
 
@@ -92,7 +98,24 @@ namespace CS4760Group1.Pages
 
         }
 
+        /// <summary>
+        /// Auto populates the PI 
+        /// </summary>
+        private void PopulateUserList()
+        {
+            UserList = _context.Users
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = $"{c.FirstName} {c.LastName}"
+                })
+                .ToList();
+        }
+
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
+
+            // Repopulate UserList when the form is submitted
+            PopulateUserList();
 
             if (GrantUpload == null || GrantUpload.Length == 0)
             {
