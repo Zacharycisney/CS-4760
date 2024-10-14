@@ -30,10 +30,28 @@ namespace CS4760Group1.Pages
         public IFormFile GrantUpload { get; set; }
 
 
+        /* ------------------------------------ */
+        public List<SelectListItem> UserList { get; set; }
+
+
+
+
         public void OnGet()
         {
+
+            UserList = _context.Users
+                .Select(u => new SelectListItem
+                {
+                    Value = u.Id.ToString(),
+                    Text = $"{u.FirstName} {u.LastName}"
+                })
+                .ToList();
+
         }
 
+
+
+        /* ------------------------------------ */
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
 
             if (GrantUpload == null || GrantUpload.Length == 0)
