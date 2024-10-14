@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CS4760Group1.Data;
 using Microsoft.Extensions.Hosting;
+using static CS4760Group1.Pages.IndexModel;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace CS4760Group1.Pages
@@ -27,15 +30,68 @@ namespace CS4760Group1.Pages
         public Grant Grant { get; set; }
         public List<SelectListItem> UserList { get; set; }
 
-
         [BindProperty]
         public IFormFile GrantUpload { get; set; }
 
 
+        public List<GrantType> AppliedGrant { get; set; }
+        public IList<Department> Department { get; set; } = new List<Department>();
+        public IList<College> College { get; set; } = new List<College>();
 
-        public void OnGet()
+
+
+
+        public async Task OnGet()
         {
             PopulateUserList();
+
+
+            Department = await _context.Department.ToListAsync();
+            College = await _context.College.ToListAsync();
+
+            AppliedGrant = new List<GrantType> { 
+                new GrantType{ 
+                    applyingFor = "Research Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Creative Works Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Travel Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Hemmingway Excellence Award",
+                    grantSeason = "Spring"
+                },
+                new GrantType{
+                    applyingFor = "Hemmingway Collaborative Award",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Innovative Teaching Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Hemmingway Adjunct Faculty Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Hemmingway New Faculty Grant",
+                    grantSeason = "Spring"
+                },
+                new GrantType{
+                    applyingFor = "Hemmingway Faculty Vitality Grant",
+                    grantSeason = "Fall Spring"
+                },
+                new GrantType{
+                    applyingFor = "Community Engaged Learning Grant",
+                    grantSeason = "Fall Spring"
+                }
+            };
+
         }
 
         /// <summary>
@@ -100,6 +156,12 @@ namespace CS4760Group1.Pages
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index"); //Redirect to index page after submission
+        }
+
+        public class GrantType
+        {
+            public string applyingFor { get; set; }
+            public string grantSeason { get; set; }
         }
     }
 }

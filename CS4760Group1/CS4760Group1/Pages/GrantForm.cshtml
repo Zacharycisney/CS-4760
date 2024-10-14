@@ -29,20 +29,74 @@
             </div>
 
             <div class="form-group">
+                <label class="control-label">Select College:</label>
+                <select class="form-control" asp-for="Grant.CollegeID" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
+                    <option>Select College</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Department:</label> <!-- Needs to be able to be filtered by what College is selected -->
+                <select class="form-control" asp-for="Grant.DepartmentID" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
+                    <option>Select Department</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="Grant.Type" class="control-label">Grant type:</label>
                 <select asp-for="Grant.Type" class="form-control">
-                    <option value="rspg">RSPG</option>
-                    <option value="arcc">ARCC</option>
-                    <option value="our">OUR</option>
+                    <option value="RSPG">RSPG</option>
+                    <option value="ARCC">ARCC</option>
+                    <option value="OUR">OUR</option>
                 </select>
                 <span asp-validation-for="Grant.Type" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Grant.Amount" class="control-label">Amount requested:</label>
+                <label class="control-label">Grant Season:</label> 
+                <select class="form-control" asp-for="Grant.Season">
+                    <option>Select Season</option>
+                    <option value="fall">Fall</option>
+                    <option value="spring">Spring</option>
+                    <option value="travel">Travel</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group"> <!-- Needs to be able to be filtered by what season is selected -->
+                <label class="control-label">Grant Subtype:</label>
+                <select class="form-control" asp-for="Grant.SubType" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
+                    <option>Select Subtype</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <!-- Needs Amnt from RSPG, From other, And total amount. Auto populated from resouces page-->
+
+            <div class="form-group"> 
+                <label asp-for="Grant.Amount" class="control-label">Amount requested from RSPG:</label>
                 <input asp-for="Grant.Amount" class="form-control" />
                 <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Grant.AmountFromOther" class="control-label">Amount requested from other:</label>
+                <input asp-for="Grant.AmountFromOther" class="form-control" />
+                <span asp-validation-for="Grant.AmountFromOther" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Grant.TotalAmount" class="control-label">Total Amount:</label>
+                <input asp-for="Grant.TotalAmount" class="form-control" />
+                <span asp-validation-for="Grant.TotalAmount" class="text-danger"></span>
+            </div>
+
+            <!----------------------------------------------------------------->
+
+
+
             <div class="form-group">
                 <label asp-for="GrantUpload">Upload Grant File:</label>
                 <input type="file" name="GrantUpload" class="form-control" />
@@ -62,3 +116,7 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
+
+<script>
+
+</script>
