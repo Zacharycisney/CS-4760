@@ -28,6 +28,24 @@
                 <span asp-validation-for="Grant.Description" class="text-danger"></span>
             </div>
 
+            <!-- Needs to be bound to db when submitted -->
+            <div class="form-group">
+                <label class="control-label">Select College:</label>
+                <select class="form-control" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
+                    <option>Select College</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <!-- Needs to be bound to db when submitted -->
+            <div class="form-group">
+                <label class="control-label">Department:</label>
+                <select class="form-control" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
+                    <option>Select Department</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="Grant.Type" class="control-label">Grant type:</label> <!-- Change to auto populate with grants currently available? -->
                 <select asp-for="Grant.Type" class="form-control">
@@ -38,11 +56,53 @@
                 <span asp-validation-for="Grant.Type" class="text-danger"></span>
             </div>
 
+            <!-- Needs to be bound to db when submitted -->
             <div class="form-group">
-                <label asp-for="Grant.Amount" class="control-label">Amount requested:</label>
+                <label class="control-label">Grant Season:</label> 
+                <select class="form-control" id="grantSeason">
+                    <option>Select Season</option>
+                    <option value="fall">Fall</option>
+                    <option value="spring">Spring</option>
+                    <option value="travel">Travel</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group"> <!-- Change to be able to be filtered by what season is selected -->
+                <label class="control-label">Grant Subtype:</label>
+                <select class="form-control" id="grantSubtype" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
+                    <option>Select Subtype</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <!-- Needs Amnt from RSPG, From other, And total amount. Auto populated from resouces page-->
+            <!-- Needs to be bound to db when submitted -->
+
+            <div class="form-group"> 
+                <label asp-for="Grant.Amount" class="control-label">Amount requested from RSPG:</label>
                 <input asp-for="Grant.Amount" class="form-control" />
                 <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label class="control-label">Amount requested from other:</label>
+                <input class="form-control" />
+                <span asp-validation-for="Grant.Amount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Total Amount:</label>
+                <input class="form-control" />
+                <span asp-validation-for="Grant.Amount" class="text-danger"></span>
+            </div>
+
+            <!----------------------------------------------------------------->
+
+
+
             <div class="form-group">
                 <label asp-for="GrantUpload">Upload Grant File:</label>
                 <input type="file" name="GrantUpload" class="form-control" />
@@ -62,3 +122,7 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
+
+<script>
+
+</script>
