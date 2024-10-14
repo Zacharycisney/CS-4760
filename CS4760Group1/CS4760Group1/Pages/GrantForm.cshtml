@@ -28,19 +28,17 @@
                 <span asp-validation-for="Grant.Description" class="text-danger"></span>
             </div>
 
-            <!-- Needs to be bound to db when submitted -->
             <div class="form-group">
                 <label class="control-label">Select College:</label>
-                <select class="form-control" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
+                <select class="form-control" asp-for="Grant.CollegeID" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
                     <option>Select College</option>
                 </select>
                 <span class="text-danger"></span>
             </div>
 
-            <!-- Needs to be bound to db when submitted -->
             <div class="form-group">
-                <label class="control-label">Department:</label>
-                <select class="form-control" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
+                <label class="control-label">Department:</label> <!-- Needs to be able to be filtered by what College is selected -->
+                <select class="form-control" asp-for="Grant.DepartmentID" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
                     <option>Select Department</option>
                 </select>
                 <span class="text-danger"></span>
@@ -49,17 +47,16 @@
             <div class="form-group">
                 <label asp-for="Grant.Type" class="control-label">Grant type:</label>
                 <select asp-for="Grant.Type" class="form-control">
-                    <option value="rspg">RSPG</option>
-                    <option value="arcc">ARCC</option>
-                    <option value="our">OUR</option>
+                    <option value="RSPG">RSPG</option>
+                    <option value="ARCC">ARCC</option>
+                    <option value="OUR">OUR</option>
                 </select>
                 <span asp-validation-for="Grant.Type" class="text-danger"></span>
             </div>
 
-            <!-- Needs to be bound to db when submitted -->
             <div class="form-group">
                 <label class="control-label">Grant Season:</label> 
-                <select class="form-control" id="grantSeason">
+                <select class="form-control" asp-for="Grant.Season">
                     <option>Select Season</option>
                     <option value="fall">Fall</option>
                     <option value="spring">Spring</option>
@@ -68,18 +65,15 @@
                 <span class="text-danger"></span>
             </div>
 
-           
-
-            <div class="form-group"> <!-- Change to be able to be filtered by what season is selected -->
+            <div class="form-group"> <!-- Needs to be able to be filtered by what season is selected -->
                 <label class="control-label">Grant Subtype:</label>
-                <select class="form-control" id="grantSubtype" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
+                <select class="form-control" asp-for="Grant.SubType" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
                     <option>Select Subtype</option>
                 </select>
                 <span class="text-danger"></span>
             </div>
 
             <!-- Needs Amnt from RSPG, From other, And total amount. Auto populated from resouces page-->
-            <!-- Needs to be bound to db when submitted -->
 
             <div class="form-group"> 
                 <label asp-for="Grant.Amount" class="control-label">Amount requested from RSPG:</label>
@@ -88,15 +82,15 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label">Amount requested from other:</label>
-                <input class="form-control" />
-                <span asp-validation-for="Grant.Amount" class="text-danger"></span>
+                <label asp-for="Grant.AmountFromOther" class="control-label">Amount requested from other:</label>
+                <input asp-for="Grant.AmountFromOther" class="form-control" />
+                <span asp-validation-for="Grant.AmountFromOther" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label class="control-label">Total Amount:</label>
-                <input class="form-control" />
-                <span asp-validation-for="Grant.Amount" class="text-danger"></span>
+                <label asp-for="Grant.TotalAmount" class="control-label">Total Amount:</label>
+                <input asp-for="Grant.TotalAmount" class="form-control" />
+                <span asp-validation-for="Grant.TotalAmount" class="text-danger"></span>
             </div>
 
             <!----------------------------------------------------------------->
