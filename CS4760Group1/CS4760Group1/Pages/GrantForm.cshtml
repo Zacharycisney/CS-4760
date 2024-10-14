@@ -16,8 +16,8 @@
                 <span asp-validation-for="Grant.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Grant.PI" class="control-label">PI:</label> <!-- Change to auto populate with who's logged in -->
-                <select asp-for="Grant.PI" class="form-control" asp-items="Model.UserList">
+                <label asp-for="Grant.PI" class="control-label">PI:</label> 
+                <select asp-for="Grant.PI" class="form-control" asp-items="Model.UserList"> <!-- auto populates -->
                     <option value="">Select a PI</option>
                 </select>
                 <span asp-validation-for="Grant.PI" class="text-danger"></span>

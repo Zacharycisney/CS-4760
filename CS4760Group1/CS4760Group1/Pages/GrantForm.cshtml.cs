@@ -25,34 +25,37 @@ namespace CS4760Group1.Pages
 
         [BindProperty]
         public Grant Grant { get; set; }
+        public List<SelectListItem> UserList { get; set; }
+
 
         [BindProperty]
         public IFormFile GrantUpload { get; set; }
 
 
-        /* ------------------------------------ */
-        public List<SelectListItem> UserList { get; set; }
-
-
-
 
         public void OnGet()
         {
-
-            UserList = _context.Users
-                .Select(u => new SelectListItem
-                {
-                    Value = u.Id.ToString(),
-                    Text = $"{u.FirstName} {u.LastName}"
-                })
-                .ToList();
-
+            PopulateUserList();
         }
 
+        /// <summary>
+        /// Auto populates the PI 
+        /// </summary>
+        private void PopulateUserList()
+        {
+            UserList = _context.Users
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = $"{c.FirstName} {c.LastName}"
+                })
+                .ToList();
+        }
 
-
-        /* ------------------------------------ */
         public async Task<IActionResult> OnPostAsync() { //Handle form submission
+
+            // Repopulate UserList when the form is submitted
+            PopulateUserList();
 
             if (GrantUpload == null || GrantUpload.Length == 0)
             {
