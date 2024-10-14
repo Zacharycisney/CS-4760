@@ -13,6 +13,8 @@ namespace CS4760Group1.Models
 
         [Required]
         public Role Role { get; set; }
+
+
     }
 
     public enum Role
@@ -25,4 +27,5 @@ namespace CS4760Group1.Models
         Adjunct,
         Staff
     }
+
 }

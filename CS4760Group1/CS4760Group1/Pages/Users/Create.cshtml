@@ -34,6 +34,23 @@
                 <input asp-for="User.LastName" class="form-control" />
                 <span asp-validation-for="User.LastName" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="UserAffiliation.CollegeId" class="control-label">College</label>
+                <select asp-for="SelectedCollegeId" class="form-control" asp-items="Model.CollegeList" id="collegeSelect">
+                    <option value="">Select a college</option>
+                </select>
+                <span asp-validation-for="UserAffiliation.CollegeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserAffiliation.DepartmentId" class="control-label">Department</label>
+                <select asp-for="UserAffiliation.DepartmentId" class="form-control" asp-items="Model.DepartmentList" id="departmentSelect">
+                    <option value="">Select a department (a college must be selected first)</option>
+                </select>
+                <span asp-validation-for="UserAffiliation.DepartmentId" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="User.Role" class="control-label"></label>
                 <select asp-for="User.Role" class="form-control">
@@ -67,6 +84,7 @@
 </div>
 
 @section Scripts {
+    <script src="~/js/UpdateDepartments.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

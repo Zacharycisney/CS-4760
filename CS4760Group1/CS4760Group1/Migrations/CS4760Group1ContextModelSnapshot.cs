@@ -125,12 +125,20 @@ namespace CS4760Group1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("GrantId")
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GrantID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GrantId");
+                    b.HasIndex("GrantID");
 
                     b.ToTable("GrantFile");
                 });
@@ -213,6 +221,28 @@ namespace CS4760Group1.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("CS4760Group1.Models.UserAffiliation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CollegeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAffiliations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -356,7 +386,7 @@ namespace CS4760Group1.Migrations
                 {
                     b.HasOne("CS4760Group1.Models.Grant", "Grant")
                         .WithMany()
-                        .HasForeignKey("GrantId")
+                        .HasForeignKey("GrantID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

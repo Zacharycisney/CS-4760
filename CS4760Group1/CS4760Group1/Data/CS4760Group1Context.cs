@@ -20,6 +20,8 @@ namespace CS4760Group1.Data
         public DbSet<Department> Department { get; set; } = default!;
         public DbSet<Grant> Grant { get; set; } = default!;
         public DbSet<GrantFile> GrantFile { get; set; } = default!;
+        public DbSet<UserAffiliation> UserAffiliations { get; set; } = default!;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +33,8 @@ namespace CS4760Group1.Data
                     v => v.ToString(),   // Convert the enum to string when saving to the database
                     v => (Role)Enum.Parse(typeof(Role), v)  // Convert the string back to the enum when reading from the database
                 );
+
+          
         }
     }
 }
