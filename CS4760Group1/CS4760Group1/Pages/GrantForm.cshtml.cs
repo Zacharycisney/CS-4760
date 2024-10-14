@@ -30,18 +30,12 @@ namespace CS4760Group1.Pages
         public Grant Grant { get; set; }
         public List<SelectListItem> UserList { get; set; }
 
-
         [BindProperty]
         public IFormFile GrantUpload { get; set; }
+
+
         public List<GrantType> AppliedGrant { get; set; }
-
-
-
-        public void OnGet()
-
         public IList<Department> Department { get; set; } = new List<Department>();
-
-
         public IList<College> College { get; set; } = new List<College>();
 
 
@@ -50,6 +44,8 @@ namespace CS4760Group1.Pages
         public async Task OnGet()
         {
             PopulateUserList();
+
+
             Department = await _context.Department.ToListAsync();
             College = await _context.College.ToListAsync();
 
