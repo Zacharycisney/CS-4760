@@ -35,3 +35,7 @@ table, th, td {
     justify-content: center; /* Centers the table horizontally */
     margin-top: 20px; /* Optional: adds space above the table */
 }
+
+body {
+    padding-bottom: 100px; /* Adjust as necessary */
+}
