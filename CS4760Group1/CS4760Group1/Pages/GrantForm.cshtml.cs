@@ -32,6 +32,10 @@ namespace CS4760Group1.Pages
 
         [BindProperty]
         public IFormFile GrantUpload { get; set; }
+        [BindProperty]
+        public IFormFile GrantUpload2 { get; set; }
+        [BindProperty]
+        public IFormFile GrantUpload3 { get; set; }
 
 
         public List<GrantType> AppliedGrant { get; set; }
@@ -113,7 +117,9 @@ namespace CS4760Group1.Pages
             // Repopulate UserList when the form is submitted
             PopulateUserList();
 
-            if (GrantUpload == null || GrantUpload.Length == 0)
+            if ((GrantUpload == null || GrantUpload.Length == 0) &&
+                (GrantUpload2 == null || GrantUpload2.Length == 0) &&
+                (GrantUpload3 == null || GrantUpload3.Length == 0))
             {
                 ModelState.AddModelError(string.Empty, "Please upload a file.");
                 return Page();
@@ -135,24 +141,74 @@ namespace CS4760Group1.Pages
             }
 
 
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + GrantUpload.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            if (GrantUpload != null && GrantUpload.Length > 0)
             {
-                await GrantUpload.CopyToAsync(stream);
+                string uniqueFileName1 = Guid.NewGuid().ToString() + "_" + GrantUpload.FileName;
+                string filePath1 = Path.Combine(uploadsFolder, uniqueFileName1);
+
+                using (var stream = new FileStream(filePath1, FileMode.Create))
+                {
+                    await GrantUpload.CopyToAsync(stream);
+                }
+
+                // Add GrantFile record for the first file
+                var grantFile1 = new GrantFile
+                {
+                    GrantID = Grant.Id,
+                    FileName = GrantUpload.FileName,
+                    FilePath = "/grant_files/" + uniqueFileName1,
+                    Grant = Grant
+                };
+
+                _context.GrantFile.Add(grantFile1);
             }
 
-            //object to submit to table
-            var grantFile = new GrantFile
+            // Handle GrantUpload2 (File 2)
+            if (GrantUpload2 != null && GrantUpload2.Length > 0)
             {
-                GrantID = Grant.Id,
-                FileName = GrantUpload.FileName,
-                FilePath = "/grant_files/" + uniqueFileName,  // Save relative path for easier access in the app
-                Grant = Grant
-            };
+                string uniqueFileName2 = Guid.NewGuid().ToString() + "_" + GrantUpload2.FileName;
+                string filePath2 = Path.Combine(uploadsFolder, uniqueFileName2);
 
-            _context.GrantFile.Add(grantFile);
+                using (var stream = new FileStream(filePath2, FileMode.Create))
+                {
+                    await GrantUpload2.CopyToAsync(stream);
+                }
+
+                // Add GrantFile record for the second file
+                var grantFile2 = new GrantFile
+                {
+                    GrantID = Grant.Id,
+                    FileName = GrantUpload2.FileName,
+                    FilePath = "/grant_files/" + uniqueFileName2,
+                    Grant = Grant
+                };
+
+                _context.GrantFile.Add(grantFile2);
+            }
+
+            // Handle GrantUpload3 (File 3)
+            if (GrantUpload3 != null && GrantUpload3.Length > 0)
+            {
+                string uniqueFileName3 = Guid.NewGuid().ToString() + "_" + GrantUpload3.FileName;
+                string filePath3 = Path.Combine(uploadsFolder, uniqueFileName3);
+
+                using (var stream = new FileStream(filePath3, FileMode.Create))
+                {
+                    await GrantUpload3.CopyToAsync(stream);
+                }
+
+                // Add GrantFile record for the third file
+                var grantFile3 = new GrantFile
+                {
+                    GrantID = Grant.Id,
+                    FileName = GrantUpload3.FileName,
+                    FilePath = "/grant_files/" + uniqueFileName3,
+                    Grant = Grant
+                };
+
+                _context.GrantFile.Add(grantFile3);
+            }
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index"); //Redirect to index page after submission
