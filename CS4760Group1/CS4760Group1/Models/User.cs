@@ -19,13 +19,13 @@ namespace CS4760Group1.Models
 
     public enum Role
     {
+        Staff,
         Admin,
         Chair,
         Tenured,
         Tenure,
         Instructor,
-        Adjunct,
-        Staff
+        Adjunct
     }
 
 }

@@ -25,14 +25,6 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\c4acb665-0c95-4a57-83f7-e5f9325260c8_update_verify.PNG",
-      "PackagePath": "staticwebassets\\grant_files\\c4acb665-0c95-4a57-83f7-e5f9325260c8_update_verify.PNG"
-    },
-    {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\da59b56e-0abd-4e8b-a65f-5b894e5a69ff_important.jpg",
-      "PackagePath": "staticwebassets\\grant_files\\da59b56e-0abd-4e8b-a65f-5b894e5a69ff_important.jpg"
-    },
-    {
       "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\UpdateDepartments.js",
       "PackagePath": "staticwebassets\\js\\UpdateDepartments.js"
     },
