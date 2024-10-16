@@ -99,7 +99,7 @@ namespace CS4760Group1.Pages.Users
             UserAffiliation.UserId = User.Id; // Set the generated User ID
             UserAffiliation.CollegeId = SelectedCollegeId; // This should be set from your form input
 
-            _context.UserAffiliations.Add(UserAffiliation);
+            //_context.UserAffiliations.Add(UserAffiliation);
             await _context.SaveChangesAsync(); // Save the UserAffiliation
 
             return RedirectToPage("./Index");
