@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CS4760Group1.Data;
 using CS4760Group1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS4760Group1.Pages.Users
 {
@@ -98,9 +99,18 @@ namespace CS4760Group1.Pages.Users
             // Now you can set UserAffiliation properties
             UserAffiliation.UserId = User.Id; // Set the generated User ID
             UserAffiliation.CollegeId = SelectedCollegeId; // This should be set from your form input
+            UserAffiliation.DepartmentId = UserAffiliation.DepartmentId;
 
-            //_context.UserAffiliations.Add(UserAffiliation);
-            await _context.SaveChangesAsync(); // Save the UserAffiliation
+            _context.UserAffiliation.Add(UserAffiliation);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException?.Message;
+                Console.WriteLine($"Error: {innerException}");
+            }
 
             return RedirectToPage("./Index");
         }

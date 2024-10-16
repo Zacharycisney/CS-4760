@@ -11,6 +11,8 @@ namespace CS4760Group1.Models
         public int CollegeId { get; set; }
 
         public int DepartmentId { get; set; }
+
+        public int tempField { get ; set; }
     }
 
 
