@@ -56,43 +56,43 @@ namespace CS4760Group1.Pages
             AppliedGrant = new List<GrantType> { 
                 new GrantType{ 
                     applyingFor = "Research Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Creative Works Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Travel Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Hemmingway Excellence Award",
-                    grantSeason = "Spring"
+                    grantSeason = "spring"
                 },
                 new GrantType{
                     applyingFor = "Hemmingway Collaborative Award",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Innovative Teaching Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Hemmingway Adjunct Faculty Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Hemmingway New Faculty Grant",
-                    grantSeason = "Spring"
+                    grantSeason = "spring"
                 },
                 new GrantType{
                     applyingFor = "Hemmingway Faculty Vitality Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 },
                 new GrantType{
                     applyingFor = "Community Engaged Learning Grant",
-                    grantSeason = "Fall Spring"
+                    grantSeason = "fall,spring"
                 }
             };
 
