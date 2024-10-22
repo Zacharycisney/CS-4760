@@ -8,7 +8,8 @@
             // Get the table row containing the clicked button
             const row = this.closest('tr');
 
-            // Capture first name, last name, college, and department
+            // Capture userId, first name, last name, college, and department
+            const userId = row.getAttribute('data-user-id'); // Get the user ID from the row
             const firstName = row.querySelector('td:nth-child(1)').innerText;
             const lastName = row.querySelector('td:nth-child(2)').innerText;
             const college = row.querySelector('td:nth-child(3)').innerText;
@@ -16,6 +17,7 @@
 
             // Create a new list item for the committee member
             const newListItem = document.createElement('li');
+            newListItem.setAttribute('data-user-id', userId); // Store userId in the list item
             newListItem.innerHTML = `
                 ${firstName} ${lastName} - ${college} ${department} 
                 <button class="btn btn-secondary btn-sm remove-btn ml-2">Remove</button>
@@ -33,11 +35,12 @@
 
             // Attach event listener to the remove button
             newListItem.querySelector('.remove-btn').addEventListener('click', function () {
-                // Re-add the user to the "Potential Members" table when removed from committee
+                // Re-add the user to the "Potential Members" table when removed from the committee
                 const potentialMembersTable = document.querySelector('#potentialMembers tbody');
 
                 // Create a new row in the potential members table
                 const newRow = document.createElement('tr');
+                newRow.setAttribute('data-user-id', userId); // Reattach userId to the row
                 newRow.innerHTML = `
                     <td>${firstName}</td>
                     <td>${lastName}</td>
@@ -63,6 +66,7 @@
                     const department = row.querySelector('td:nth-child(4)').innerText;
 
                     const newListItem = document.createElement('li');
+                    newListItem.setAttribute('data-user-id', userId); // Keep userId in the list item
                     newListItem.innerHTML = `
                         ${firstName} ${lastName} - ${college} ${department} 
                         <button class="btn btn-secondary btn-sm remove-btn ml-2">Remove</button>
