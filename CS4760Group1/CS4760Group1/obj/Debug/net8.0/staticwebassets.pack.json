@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\js\\AddRemoveCommitteeMember.js"
     },
     {
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\FilterUsers.js",
+      "PackagePath": "staticwebassets\\js\\FilterUsers.js"
+    },
+    {
       "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\UpdateDepartments.js",
       "PackagePath": "staticwebassets\\js\\UpdateDepartments.js"
     },

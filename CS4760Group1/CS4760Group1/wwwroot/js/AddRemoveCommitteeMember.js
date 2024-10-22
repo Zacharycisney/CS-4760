@@ -1,5 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    // Get all the "Add" buttons
+    // Get all the Add buttons
     const addButtons = document.querySelectorAll('.add-btn');
 
     // Loop through each button and attach a click event listener
@@ -52,7 +52,7 @@
                 // Remove the member from the committee member list
                 newListItem.remove();
 
-                // Reattach the event listener to the newly added "Add" button
+                // Reattach the event listener to the newly added Add button
                 newRow.querySelector('.add-btn').addEventListener('click', function () {
                     // Re-adding the member to the top list
                     const row = this.closest('tr');
@@ -74,7 +74,7 @@
 
                     row.remove();
 
-                    // Attach event listener for the new "Remove" button
+                    // Attach event listener for the new Remove button
                     newListItem.querySelector('.remove-btn').addEventListener('click', function () {
                         // Call the same logic to add the user back to the potential members table
                         potentialMembersTable.appendChild(newRow);
