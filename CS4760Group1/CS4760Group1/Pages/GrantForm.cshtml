@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label class="control-label">Select College:</label>
-                <select class="form-control" asp-for="Grant.CollegeID" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
+                <select id="collegeSelect" class="form-control" asp-for="Grant.CollegeID" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
                     <option>Select College</option>
                 </select>
                 <span class="text-danger"></span>
@@ -38,7 +38,7 @@
 
             <div class="form-group">
                 <label class="control-label">Department:</label> <!-- Needs to be able to be filtered by what College is selected -->
-                <select class="form-control" asp-for="Grant.DepartmentID" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
+                <select id="departmentSelect" class="form-control" asp-for="Grant.DepartmentID" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
                     <option>Select Department</option>
                 </select>
                 <span class="text-danger"></span>
@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 <label class="control-label">Grant Season:</label> 
-                <select class="form-control" asp-for="Grant.Season">
+                <select id="grantSeason" class="form-control" asp-for="Grant.Season">
                     <option>Select Season</option>
                     <option value="fall">Fall</option>
                     <option value="spring">Spring</option>
@@ -67,7 +67,7 @@
 
             <div class="form-group"> <!-- Needs to be able to be filtered by what season is selected -->
                 <label class="control-label">Grant Subtype:</label>
-                <select class="form-control" asp-for="Grant.SubType" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
+                <select id="grantSubType" class="form-control" asp-for="Grant.SubType" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
                     <option>Select Subtype</option>
                 </select>
                 <span class="text-danger"></span>
@@ -123,6 +123,10 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
-<script>
 
-</script>
+@section Scripts {
+    <script src="~/js/UpdateDepartments.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

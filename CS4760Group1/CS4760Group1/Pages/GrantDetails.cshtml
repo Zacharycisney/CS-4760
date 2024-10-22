@@ -24,8 +24,24 @@
         <td>@Model.Grant.Type</td>
     </tr>
     <tr>
-        <th>Amount:</th>
+        <th>Subtype:</th>
+        <td>@Model.Grant.SubType</td>
+    </tr>
+    <tr>
+        <th>Season:</th>
+        <td>@Model.Grant.Season</td>
+    </tr>
+    <tr>
+        <th>Amount from @Model.Grant.Type:</th>
         <td>@Model.Grant.Amount</td>
+    </tr>
+    <tr>
+        <th>Amount from Other:</th>
+        <td>@Model.Grant.AmountFromOther</td>
+    </tr>
+    <tr>
+        <th>Total Amount:</th>
+        <td>@Model.Grant.TotalAmount</td>
     </tr>
     <tr>
         <th>Status:</th>
