@@ -12,28 +12,27 @@
 
     <div id="currentMembers">
         <h4>Committee Members:</h4>
-        <ul>
+        <ul id="CommitteeMemberList">
             <li>John Smith - Harvard University Harvard Law School</li>
+
         </ul>
     </div>
 
     <div id="filterSection">
         <div class="form-group">
-            <label for="collegeSelect">College:</label>
-            <select id="collegeSelect" class="form-control">
-                <option value="">-- Select a College --</option>
-                <option value="1">Harvard University</option>
-                <option value="1">Weber State University</option>
+            <label asp-for="UserAffiliation.CollegeId" class="control-label">College</label>
+            <select asp-for="SelectedCollegeId" class="form-control" asp-items="Model.CollegeList" id="collegeSelect">
+                <option value="">Select a college</option>
             </select>
+            <span asp-validation-for="UserAffiliation.CollegeId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="departmentSelect">Department:</label>
-            <select id="departmentSelect" class="form-control">
-                <option value="">-- Select a Department --</option>
-                <option value="">Harvard Law School</option>
-                <option value="">Computer Science</option>
+            <label asp-for="UserAffiliation.DepartmentId" class="control-label">Department:</label>
+            <select asp-for="UserAffiliation.DepartmentId" class="form-control" asp-items="Model.DepartmentList" id="departmentSelect">
+                <option value="">Select a department</option>
             </select>
+            <span asp-validation-for="UserAffiliation.DepartmentId" class="text-danger"></span>
         </div>
     </div>
 
@@ -46,20 +45,32 @@
                     <th>Last Name</th>
                     <th>College</th>
                     <th>Department</th>
-                    <th>Add</th>
+                    <th>Committee</th>
                 </tr>
             </thead>
             <tbody>
+
+                @foreach (var item in Model.User) {
                     <tr>
-                        <td>Jack</td>
-                        <td>Hacker</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
                         <td>Weber State University</td>
                         <td>Computer Science</td>
                         <td>
-                            <button class="btn btn-primary" asp-action="AddMember">Add</button>
+                            <button class="btn btn-primary add-btn" asp-action="AddMember">Add</button>
                         </td>
                     </tr>
+                }
+
             </tbody>
         </table>
     </div>
 </div>
+@section Scripts {
+    <script src="~/js/UpdateDepartments.js"></script>
+    <script src="~/js/AddRemoveCommitteeMember.js"></script>
+}
