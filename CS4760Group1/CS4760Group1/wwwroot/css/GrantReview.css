@@ -53,3 +53,8 @@ h1 {
     .btn-review:active:focus {
         box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #218838;
     }
+
+.grant-review-grading {
+    padding-left: 100px;
+    padding-right: 300px;
+}
