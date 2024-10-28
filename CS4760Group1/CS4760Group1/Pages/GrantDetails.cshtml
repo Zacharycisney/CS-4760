@@ -54,13 +54,18 @@
 </table>
 
 <div class="grant-review-grading">
+    <!-- Area 1 -->
+    <div>
+        <h3>Area 1</h3>
+        <p>Choose one of the following:</p>
+        <ul>
+            <li>Budget</li>
+            <li>Support</li>
+        </ul>
+    </div>
 
-    <!-- Area one (choose one) -->
-        <!-- Budget -->
-        <!-- Support -->
-    <div class="form-group">
-        <label id="A1" class="control-label">A1:</label> <!-- Weight 3 -->
-        <select class="form-control">
+    <div class="form-group"> <!-- Weight 3 -->
+        <select id="A1" class="form-control">
             <option>0</option>
             <option>0.5</option>
             <option>1</option>
@@ -70,13 +75,19 @@
         <span class="text-danger"></span>
     </div>
 
-    <!-- Area two (choose one)-->
-        <!-- University or program reputation -->
-        <!-- Innovative teaching -->
-        <!-- Community educational engagement -->
-    <div class="form-group">
-        <label id="A2" class="control-label">A2:</label> <!-- Weight 5 -->
-        <select class="form-control">
+    <!-- Area 2 -->
+    <div>
+        <h3>Area 2</h3>
+        <p>Choose one of the following:</p>
+        <ul>
+            <li>University or program reputation</li>
+            <li>Innovative Teaching</li>
+            <li>Community educational engagement</li>
+        </ul>
+    </div>
+
+    <div class="form-group"> <!-- Weight 5 -->
+        <select id="A2" class="form-control">
             <option>0</option>
             <option>0.5</option>
             <option>1</option>
@@ -85,12 +96,60 @@
         </select>
         <span class="text-danger"></span>
     </div>
+
 
     <!-- Area three (do all) -->
-        <!-- Proc and Methods   Weight 1 -->
-        <!-- Timeline and budget description    Weight 1 -->
-        <!-- Evaluation and dissemination   Weight 3 -->
-        <!--  Evidential documentation  weight 1 -->
+
+    <div>
+        <h3>Area 3</h3>
+        <div class="form-group">
+            <label  class="control-label">Procedure and Methods:</label> <!-- Weight 1 -->
+            <select id="" class="form-control">
+                <option>0</option>
+                <option>0.5</option>
+                <option>1</option>
+                <option>1.5</option>
+                <option>2</option>
+            </select>
+            <span class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="control-label">Timeline and Budget Description:</label> <!-- Weight 1 -->
+        <select id="" class="form-control">
+            <option>0</option>
+            <option>0.5</option>
+            <option>1</option>
+            <option>1.5</option>
+            <option>2</option>
+        </select>
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label  class="control-label">Evaluation and Dissemination:</label> <!-- Weight 3 -->
+        <select id="" class="form-control">
+            <option>0</option>
+            <option>0.5</option>
+            <option>1</option>
+            <option>1.5</option>
+            <option>2</option>
+        </select>
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label  class="control-label">Evidential Documentation:</label> <!-- Weight 1 -->
+        <select id="" class="form-control">
+            <option>0</option>
+            <option>0.5</option>
+            <option>1</option>
+            <option>1.5</option>
+            <option>2</option>
+        </select>
+        <span class="text-danger"></span>
+    </div>
 
     <input value="Calculate" class="btn btn-primary" />
 </div>
@@ -107,10 +166,9 @@
         var a1 = document.getElementById('A1');
         var a2 = documnet.getElementById('A2');
 
+        var maxScore = 14;
+
         //Multiply review number by area weight and then add areas. Then divide by max area num (area weight * max score)
-
-
-
 
     </script>
 }
