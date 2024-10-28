@@ -55,8 +55,11 @@
 
 <div class="grant-review-grading">
 
+    <!-- Area one (choose one) -->
+        <!-- Budget -->
+        <!-- Support -->
     <div class="form-group">
-        <label class="control-label">A1:</label>
+        <label id="A1" class="control-label">A1:</label> <!-- Weight 3 -->
         <select class="form-control">
             <option>0</option>
             <option>0.5</option>
@@ -67,8 +70,12 @@
         <span class="text-danger"></span>
     </div>
 
+    <!-- Area two (choose one)-->
+        <!-- University or program reputation -->
+        <!-- Innovative teaching -->
+        <!-- Community educational engagement -->
     <div class="form-group">
-        <label class="control-label">A2:</label>
+        <label id="A2" class="control-label">A2:</label> <!-- Weight 5 -->
         <select class="form-control">
             <option>0</option>
             <option>0.5</option>
@@ -78,6 +85,12 @@
         </select>
         <span class="text-danger"></span>
     </div>
+
+    <!-- Area three (do all) -->
+        <!-- Proc and Methods   Weight 1 -->
+        <!-- Timeline and budget description    Weight 1 -->
+        <!-- Evaluation and dissemination   Weight 3 -->
+        <!--  Evidential documentation  weight 1 -->
 
     <input value="Calculate" class="btn btn-primary" />
 </div>
@@ -87,3 +100,17 @@
 </div>
 
 <a asp-page="./GrantReview">Back to Grant Review</a>
+
+@section Scripts {
+    <script>
+
+        var a1 = document.getElementById('A1');
+        var a2 = documnet.getElementById('A2');
+
+        //Multiply review number by area weight and then add areas. Then divide by max area num (area weight * max score)
+
+
+
+
+    </script>
+}
