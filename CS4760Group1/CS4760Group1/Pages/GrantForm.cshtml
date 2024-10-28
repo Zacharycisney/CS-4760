@@ -96,6 +96,24 @@
             <!----------------------------------------------------------------->
 
             <div class="form-group">
+                <label asp-for="Grant.Index" class="control-label">Index:</label>
+                <input asp-for="Grant.Index" class="form-control" />
+                <span asp-validation-for="Grant.Index" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Grant.ProcMethod" class="control-label">Procedure and Method:</label>
+                <textarea asp-for="Grant.ProcMethod" class="form-control"></textarea>
+                <span asp-validation-for="Grant.ProcMethod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Grant.Timeline" class="control-label">Timeline:</label>
+                <textarea asp-for="Grant.Timeline" class="form-control"></textarea>
+                <span asp-validation-for="Grant.Timeline" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="GrantUpload">Upload Grant File:</label>
                 <input type="file" name="GrantUpload" class="form-control" />
             </div>
@@ -111,9 +129,28 @@
             <div>
                 <a asp-page="Resource">View Resources</a>
             </div>
+
+            
+
+            <div class="form-group">
+                <!-- When checked, another file submission appears and is mandated. User needs to upload a instituional review board approval form -->
+                <input type="checkbox" asp-for="Grant.SubjectNeeded" id="subjectNeeded" />
+                <label asp-for="Grant.SubjectNeeded" class="control-label">Human or animal subject needed?</label>
+                <span asp-validation-for="Grant.SubjectNeeded" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" id="approvalUpload" style="display:none;">
+                <label for="ApprovalUpload">Upload Institutional Review Board Approval Form:</label>
+                <input type="file" name="ApprovalUpload" id="ApprovalUpload" class="form-control" required />
+            </div>
+
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
+            
 
         </form>
     </div>
@@ -129,4 +166,22 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var subjectCheckbox = document.getElementById('subjectNeeded');
+            var approvalFormDiv = document.getElementById('approvalUpload');
+
+            // Listen for checkbox changes
+            subjectCheckbox.addEventListener('change', function () {
+                if (this.checked) {
+                    // Show the file upload div if the checkbox is checked
+                    approvalFormDiv.style.display = 'block';
+                } else {
+                    // Hide the file upload div if the checkbox is unchecked
+                    approvalFormDiv.style.display = 'none';
+                }
+            });
+        });
+    </script>
 }

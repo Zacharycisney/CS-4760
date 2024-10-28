@@ -37,6 +37,9 @@ namespace CS4760Group1.Pages
         [BindProperty]
         public IFormFile GrantUpload3 { get; set; }
 
+        [BindProperty]
+        public IFormFile ApprovalUpload { get; set; }
+
 
         public List<GrantType> AppliedGrant { get; set; }
         public IList<Department> Department { get; set; } = new List<Department>();
@@ -140,6 +143,13 @@ namespace CS4760Group1.Pages
                 Directory.CreateDirectory(uploadsFolder); // Create directory if it doesn't exist
             }
 
+            string approvalUploadsFolder = Path.Combine(_environment.WebRootPath, "approval_files");
+            if (!Directory.Exists(approvalUploadsFolder))
+            {
+                Directory.CreateDirectory(approvalUploadsFolder); // Create directory if it doesn't exist
+            }
+
+
 
             if (GrantUpload != null && GrantUpload.Length > 0)
             {
@@ -207,6 +217,28 @@ namespace CS4760Group1.Pages
                 };
 
                 _context.GrantFile.Add(grantFile3);
+            }
+
+            if (ApprovalUpload != null && ApprovalUpload.Length > 0)
+            {
+                string approvalFileName = Guid.NewGuid().ToString() + "_" + ApprovalUpload.FileName;
+                string approvalFilePath = Path.Combine(approvalUploadsFolder, approvalFileName);
+
+                using (var stream = new FileStream(approvalFilePath, FileMode.Create))
+                {
+                    await ApprovalUpload.CopyToAsync(stream);
+                }
+
+                // Add GrantFile record for the third file
+                var approvalFile = new GrantFile
+                {
+                    GrantID = Grant.Id,
+                    FileName = ApprovalUpload.FileName,
+                    FilePath = "/approval_files/" + approvalFileName,
+                    Grant = Grant
+                };
+
+                _context.GrantFile.Add(approvalFile);
             }
 
             await _context.SaveChangesAsync();

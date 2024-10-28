@@ -41,5 +41,17 @@ namespace CS4760Group1.Models
 
         [Required]
         public int DepartmentID { get; set; } //FK to dept table
+
+        [Required]
+        public string? ProcMethod { get; set; }
+
+        [Required]
+        public string? Timeline { get; set; }
+
+        [RegularExpression(@"^(?!0(\.0+)?$)([1-9][0-9]{0,16}|0)(\.[0-9]{1,2})?$"), Required]
+        public int Index { get; set; }
+
+        [Required]
+        public bool SubjectNeeded { get; set; }
     }
 }
