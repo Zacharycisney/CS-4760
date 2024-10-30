@@ -17,6 +17,9 @@ namespace CS4760Group1.Pages
 
         public Grant? Grant { get; set; }
 
+        [BindProperty]
+        public decimal TotalScore { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int id)
         {
             // Find the grant by the provided ID

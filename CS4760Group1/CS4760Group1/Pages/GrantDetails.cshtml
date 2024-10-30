@@ -53,7 +53,8 @@
     </tr>
 </table>
 
-<div class="grant-review-grading">
+<div class="grant-review-grading" id="grant-review-grading">
+    <!------------------------------------------------------------------------->
     <!-- Area 1 -->
     <div>
         <h3>Area 1</h3>
@@ -104,7 +105,7 @@
         <h3>Area 3</h3>
         <div class="form-group">
             <label  class="control-label">Procedure and Methods:</label> <!-- Weight 1 -->
-            <select id="" class="form-control">
+            <select id="ProcMethods" class="form-control">
                 <option>0</option>
                 <option>0.5</option>
                 <option>1</option>
@@ -117,7 +118,7 @@
 
     <div class="form-group">
         <label  class="control-label">Timeline and Budget Description:</label> <!-- Weight 1 -->
-        <select id="" class="form-control">
+        <select id="Timeline" class="form-control">
             <option>0</option>
             <option>0.5</option>
             <option>1</option>
@@ -129,7 +130,7 @@
 
     <div class="form-group">
         <label  class="control-label">Evaluation and Dissemination:</label> <!-- Weight 3 -->
-        <select id="" class="form-control">
+        <select id="EvalDissem" class="form-control">
             <option>0</option>
             <option>0.5</option>
             <option>1</option>
@@ -141,7 +142,7 @@
 
     <div class="form-group">
         <label  class="control-label">Evidential Documentation:</label> <!-- Weight 1 -->
-        <select id="" class="form-control">
+        <select id="EvidenceDoc" class="form-control">
             <option>0</option>
             <option>0.5</option>
             <option>1</option>
@@ -151,24 +152,22 @@
         <span class="text-danger"></span>
     </div>
 
-    <input value="Calculate" class="btn btn-primary" />
+    <input id="calcBtn" value="Calculate" class="btn btn-primary" />
 </div>
 
+<div id="grant-score" style="display: none;">
+    <h3>The calculated score is: <span id="calc-score"></span></h3>
+    
+</div>
+
+
 <div class="form-group">
+    <input type="hidden" id="FinalScore" name="FinalScore" />
     <input type="submit" value="Submit" class="btn btn-primary" />
 </div>
 
 <a asp-page="./GrantReview">Back to Grant Review</a>
 
 @section Scripts {
-    <script>
-
-        var a1 = document.getElementById('A1');
-        var a2 = documnet.getElementById('A2');
-
-        var maxScore = 14;
-
-        //Multiply review number by area weight and then add areas. Then divide by max area num (area weight * max score)
-
-    </script>
+    <script src="~/js/GrantDetails.js"></script>
 }
