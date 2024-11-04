@@ -21,6 +21,7 @@ namespace CS4760Group1.Data
         public DbSet<Grant> Grant { get; set; } = default!;
         public DbSet<GrantFile> GrantFile { get; set; } = default!;
         public DbSet<UserAffiliation> UserAffiliation { get; set; } = default!;
+        public DbSet<GrantReview> GrantReview { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
