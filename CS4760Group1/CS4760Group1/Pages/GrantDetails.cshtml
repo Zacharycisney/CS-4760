@@ -152,7 +152,7 @@
         <span class="text-danger"></span>
     </div>
 
-    <input id="calcBtn" value="Calculate" class="btn btn-primary" />
+    <input id="calcBtn" value="Calculate" type="button" class="btn btn-primary" />
 </div>
 
 <div id="grant-score" style="display: none;">
@@ -161,10 +161,13 @@
 </div>
 
 
-<div class="form-group">
-    <input type="hidden" id="FinalScore" name="FinalScore" />
-    <input type="submit" value="Submit" class="btn btn-primary" />
-</div>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <input asp-for="GrantReview.ReviewScore" type="hidden" id="FinalScore" />
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>
 
 <a asp-page="./GrantReview">Back to Grant Review</a>
 

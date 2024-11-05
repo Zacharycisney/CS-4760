@@ -24,7 +24,8 @@
         const totalScore = scoreA1 + scoreA2 + scoreProcMethods + scoreTimeline + scoreEvalDissem + scoreEvidenceDoc;
 
         document.getElementById('calc-score').textContent = totalScore;
-        document.getElementById('FinalScore').textContent = totalScore;
+        document.getElementById('FinalScore').value = totalScore;
+
 
         document.getElementById('grant-score').style.display = 'block';
         document.getElementById('grant-review-grading').style.display = 'none';

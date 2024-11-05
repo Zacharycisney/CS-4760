@@ -18,7 +18,7 @@ namespace CS4760Group1.Pages
         public Grant? Grant { get; set; }
 
         [BindProperty]
-        public decimal TotalScore { get; set; }
+        public GrantReview GrantReview { get; set; } = new GrantReview();
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -32,6 +32,39 @@ namespace CS4760Group1.Pages
             }
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            var finalScore = Request.Form["FinalScore"];
+            Console.WriteLine("Final Score submitted: " + finalScore);
+
+            var grantUpdate = await _context.Grant.FirstOrDefaultAsync(m => m.Id == id);
+            if (grantUpdate == null)
+            {
+                return NotFound();
+            }
+
+            grantUpdate.Status = "Reviewed";
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var test = GrantReview.ReviewScore;
+
+            GrantReview.GrantID = id;
+            GrantReview.UserID = user.Id;
+            GrantReview.Status = "Reviewed";
+
+            
+
+            _context.GrantReview.Add(GrantReview);
+
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Index");
         }
     }
 
