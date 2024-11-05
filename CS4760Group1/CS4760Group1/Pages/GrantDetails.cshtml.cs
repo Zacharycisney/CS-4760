@@ -59,7 +59,7 @@ namespace CS4760Group1.Pages
             GrantReview.UserID = user.Id;
             GrantReview.Status = "Reviewed";
 
-            
+
 
             _context.GrantReview.Add(GrantReview);
 

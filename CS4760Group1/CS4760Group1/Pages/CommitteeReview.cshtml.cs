@@ -113,8 +113,8 @@ namespace CS4760Group1.Pages
             {
                 var grantReview = new GrantReview
                 {
-                    GrantId = input.GrantId,
-                    UserId = userId,
+                    GrantID = input.GrantId,
+                    UserID = userId,
                     Status = "Not Reviewed",
                     ReviewScore = 0 // Initially null
                 };

@@ -19,9 +19,8 @@ namespace CS4760Group1.Data
         public DbSet<College> College { get; set; } = default!;
         public DbSet<Department> Department { get; set; } = default!;
         public DbSet<Grant> Grant { get; set; } = default!;
-        public DbSet<GrantReview> GrantReview { get; set; } = default!;
         public DbSet<GrantFile> GrantFile { get; set; } = default!;
-        //public DbSet<UserAffiliation> UserAffiliation { get; set; } = default!;
+        public DbSet<GrantReview> GrantReview { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,7 +34,7 @@ namespace CS4760Group1.Data
                     v => (Role)Enum.Parse(typeof(Role), v)  // Convert the string back to the enum when reading from the database
                 );
 
-          
+
         }
     }
 }
