@@ -19,8 +19,9 @@ namespace CS4760Group1.Data
         public DbSet<College> College { get; set; } = default!;
         public DbSet<Department> Department { get; set; } = default!;
         public DbSet<Grant> Grant { get; set; } = default!;
+        public DbSet<GrantReview> GrantReview { get; set; } = default!;
         public DbSet<GrantFile> GrantFile { get; set; } = default!;
-        public DbSet<UserAffiliation> UserAffiliation { get; set; } = default!;
+        //public DbSet<UserAffiliation> UserAffiliation { get; set; } = default!;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

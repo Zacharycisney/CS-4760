@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9BrfHwlQpkoklZA6RcUOyhmlvo9hn6kIqb5jNvNWBcQ=",
+  "Hash": "uq/W4+HpYNX58RspD43q28rK93kbzimlV5c171efo7M=",
   "Source": "CS4760Group1",
   "BasePath": "_content/CS4760Group1",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\FilterUsers.js"
+    },
+    {
+      "Identity": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\GrantDetails.js",
+      "SourceId": "CS4760Group1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\",
+      "BasePath": "_content/CS4760Group1",
+      "RelativePath": "js/GrantDetails.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\GrantDetails.js"
     },
     {
       "Identity": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\site.js",

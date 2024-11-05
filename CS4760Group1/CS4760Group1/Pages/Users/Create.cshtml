@@ -35,20 +35,23 @@
                 <span asp-validation-for="User.LastName" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="UserAffiliation.CollegeId" class="control-label">College</label>
-                <select asp-for="SelectedCollegeId" class="form-control" asp-items="Model.CollegeList" id="collegeSelect">
-                    <option value="">Select a college</option>
-                </select>
-                <span asp-validation-for="UserAffiliation.CollegeId" class="text-danger"></span>
-            </div>
+            <div id="filterSection">
+                <div class="form-group">
+                    <label asp-for="User.CollegeId" class="control-label">College</label>
+                    <select asp-for="SelectedCollegeId" class="form-control" asp-items="Model.CollegeList" id="collegeSelect">
+                        <option value="">Select a college</option>
+                    </select>
+                    <span asp-validation-for="User.CollegeId" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="UserAffiliation.DepartmentId" class="control-label">Department</label>
-                <select asp-for="UserAffiliation.DepartmentId" class="form-control" asp-items="Model.DepartmentList" id="departmentSelect">
-                    <option value="">Select a department (a college must be selected first)</option>
-                </select>
-                <span asp-validation-for="UserAffiliation.DepartmentId" class="text-danger"></span>
+
+                <div class="form-group">
+                    <label asp-for="User.DepartmentId" class="control-label">Department:</label>
+                    <select asp-for="User.DepartmentId" class="form-control" asp-items="Model.DepartmentList" id="departmentSelect">
+                        <option value="">Select a department</option>
+                    </select>
+                    <span asp-validation-for="User.DepartmentId" class="text-danger"></span>
+                </div>
             </div>
 
             <div class="form-group">

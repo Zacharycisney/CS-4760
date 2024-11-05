@@ -14,7 +14,8 @@ namespace CS4760Group1.Models
         [Required]
         public Role Role { get; set; }
 
-
+        public int? CollegeId { get; set; }
+        public int? DepartmentId { get; set; }
     }
 
     public enum Role
@@ -27,5 +28,6 @@ namespace CS4760Group1.Models
         Instructor,
         Adjunct
     }
+
 
 }

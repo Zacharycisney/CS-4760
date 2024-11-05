@@ -105,7 +105,14 @@ namespace CS4760Group1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<string>("PI")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProcMethod")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -118,6 +125,13 @@ namespace CS4760Group1.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SubjectNeeded")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Timeline")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -163,6 +177,32 @@ namespace CS4760Group1.Migrations
                     b.ToTable("GrantFile");
                 });
 
+            modelBuilder.Entity("CS4760Group1.Models.GrantReview", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("GrantId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("ReviewScore")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("GrantReview");
+                });
+
             modelBuilder.Entity("CS4760Group1.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -174,9 +214,15 @@ namespace CS4760Group1.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("CollegeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -241,31 +287,6 @@ namespace CS4760Group1.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("CS4760Group1.Models.UserAffiliation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CollegeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("tempField")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserAffiliations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -38,51 +38,51 @@ namespace CS4760Group1.Migrations
             //        table.PrimaryKey("PK_Grant", x => x.Id);
             //    });
 
-            migrationBuilder.CreateTable(
-                name: "GrantFile",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    GrantId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GrantFile", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_GrantFile_Grant_GrantId",
-                        column: x => x.GrantId,
-                        principalTable: "Grant",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            //        migrationBuilder.CreateTable(
+            //            name: "GrantFile",
+            //            columns: table => new
+            //            {
+            //                Id = table.Column<int>(type: "int", nullable: false)
+            //                    .Annotation("SqlServer:Identity", "1, 1"),
+            //                GrantId = table.Column<int>(type: "int", nullable: false)
+            //            },
+            //            constraints: table =>
+            //            {
+            //                table.PrimaryKey("PK_GrantFile", x => x.Id);
+            //                table.ForeignKey(
+            //                    name: "FK_GrantFile_Grant_GrantId",
+            //                    column: x => x.GrantId,
+            //                    principalTable: "Grant",
+            //                    principalColumn: "Id",
+            //                    onDelete: ReferentialAction.Cascade);
+            //            });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_GrantFile_GrantId",
-                table: "GrantFile",
-                column: "GrantId");
-        }
+            //        migrationBuilder.CreateIndex(
+            //            name: "IX_GrantFile_GrantId",
+            //            table: "GrantFile",
+            //            column: "GrantId");
+            //    }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "GrantFile");
+            //    /// <inheritdoc />
+            //    protected override void Down(MigrationBuilder migrationBuilder)
+            //    {
+            //        migrationBuilder.DropTable(
+            //            name: "GrantFile");
 
-            migrationBuilder.DropTable(
-                name: "Grant");
+            //        migrationBuilder.DropTable(
+            //            name: "Grant");
 
-            migrationBuilder.DropColumn(
-                name: "CollegeID",
-                table: "Department");
+            //        migrationBuilder.DropColumn(
+            //            name: "CollegeID",
+            //            table: "Department");
 
-            migrationBuilder.AddColumn<string>(
-                name: "College",
-                table: "Department",
-                type: "nvarchar(60)",
-                maxLength: 60,
-                nullable: false,
-                defaultValue: "");
-        }
-    }
+            //        migrationBuilder.AddColumn<string>(
+            //            name: "College",
+            //            table: "Department",
+            //            type: "nvarchar(60)",
+            //            maxLength: 60,
+            //            nullable: false,
+            //            defaultValue: "");
+    }        }
+
 }

@@ -19,14 +19,10 @@ namespace CS4760Group1.Pages.Users
         {
             _context = context;
             User = new User(); // Initialize the User instance
-            UserAffiliation = new UserAffiliation(); // Initialize the UserAffiliation instance
         }
 
         [BindProperty]
         public User User { get; set; }
-
-        [BindProperty]
-        public UserAffiliation UserAffiliation { get; set; }
 
         public List<SelectListItem> CollegeList { get; set; }
         [BindProperty]
@@ -89,28 +85,17 @@ namespace CS4760Group1.Pages.Users
             if (!ModelState.IsValid)
             {
                 Roles = Enum.GetValues(typeof(Role)).Cast<Role>().ToList(); // Ensure roles are populated again on invalid state
+                setColleges(); // Populate the college list again
                 return Page();
             }
 
+            // Ensure CollegeId and DepartmentId are set from the dropdown selections
+            User.CollegeId = SelectedCollegeId; 
+            User.DepartmentId = User.DepartmentId; 
+
             // Save the user first to generate the User ID
             _context.Users.Add(User);
-            await _context.SaveChangesAsync(); // Save and generate User.Id
-
-            // Now you can set UserAffiliation properties
-            UserAffiliation.UserId = User.Id; // Set the generated User ID
-            UserAffiliation.CollegeId = SelectedCollegeId; // This should be set from your form input
-            UserAffiliation.DepartmentId = UserAffiliation.DepartmentId;
-
-            _context.UserAffiliation.Add(UserAffiliation);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-                var innerException = ex.InnerException?.Message;
-                Console.WriteLine($"Error: {innerException}");
-            }
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

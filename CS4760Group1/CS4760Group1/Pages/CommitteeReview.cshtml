@@ -10,32 +10,27 @@
     
     <h1>Grant Committee Review</h1>
 
+    <div id="grantSelection">
+        <div class="form-group">
+            <h5 for="grantSelect">Grant:</h5>
+            <select id="grantSelect" class="form-control" asp-for="SelectedGrantId" asp-items="Model.GrantList">
+                <option value="">Select a grant</option>
+            </select>
+        </div>
+    </div>
+
+    <br/>
+
     <div id="currentMembers">
-        <h4>Committee Members:</h4>
+        <h4>Committee Members</h4>
         <ul id="CommitteeMemberList">
         </ul>
     </div>
-
-    <div id="filterSection">
-        <div class="form-group">
-            <label asp-for="UserAffiliation.CollegeId" class="control-label">College</label>
-            <select asp-for="SelectedCollegeId" class="form-control" asp-items="Model.CollegeList" id="collegeSelect">
-                <option value="">Select a college</option>
-            </select>
-            <span asp-validation-for="UserAffiliation.CollegeId" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="UserAffiliation.DepartmentId" class="control-label">Department:</label>
-            <select asp-for="UserAffiliation.DepartmentId" class="form-control" asp-items="Model.DepartmentList" id="departmentSelect">
-                <option value="">Select a department</option>
-            </select>
-            <span asp-validation-for="UserAffiliation.DepartmentId" class="text-danger"></span>
-        </div>
-    </div>
+    <button class="btn btn-success" id="saveMembersBtn">Save Committee Members</button>
 
     <div id="potentialMembers">
-        <h4>Potential Members:</h4>
+        <h4>Potential Members</h4>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,24 +42,36 @@
                 </tr>
             </thead>
             <tbody>
-
-                @foreach (var item in Model.User) {
-                    <tr data-user-id ="@item.Id">
+                @foreach (var item in Model.User)
+                {
+                    <tr data-user-id="@item.Id">
                         <td>
                             @Html.DisplayFor(modelItem => item.FirstName)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.LastName)
                         </td>
-                        <td>Weber State University</td>
-                        <td>Computer Science</td>
+
+                        <td>
+                            @{
+                                var college = Model.Colleges.FirstOrDefault(c => c.Id == item.CollegeId);
+                                @(college != null ? college.Name : "Weber State University")
+                            }
+                        </td>
+                        <td>
+                            @{
+                                var department = Model.Departments.FirstOrDefault(d => d.Id == item.DepartmentId);
+                                @(department != null ? department.Name : "Computer Science")
+                            }
+                        </td>
+
                         <td>
                             <button class="btn btn-primary add-btn" asp-action="AddMember">Add</button>
                         </td>
                     </tr>
                 }
-
             </tbody>
+
         </table>
     </div>
 </div>
@@ -74,4 +81,54 @@
     <script src="~/js/AddRemoveCommitteeMember.js"></script>
 
     <script src="~/js/FilterUsers.js"></script>
+
+    <script>
+        document.getElementById("saveMembersBtn").addEventListener("click", function () {
+            // Collect selected user IDs (you will need to adjust this based on how users are selected in your UI)
+            var selectedUserIds = [];
+            document.querySelectorAll("#CommitteeMemberList li").forEach(function (item) {
+                var userId = item.getAttribute("data-user-id");
+                if (userId) {
+                    selectedUserIds.push(parseInt(userId));
+                }
+            });
+
+            // Get the selected grant ID
+            var grantId = document.getElementById("grantSelect").value;
+
+            // Ensure both grant ID and user IDs are present
+            if (!grantId || selectedUserIds.length === 0) {
+                alert("Please select a grant and add at least one committee member.");
+                return;
+            }
+
+            // Create data object to send
+            var data = {
+                GrantId: parseInt(grantId),
+                UserIds: selectedUserIds
+            };
+
+            // Send the data to the server via an AJAX POST request
+            fetch("/CommitteeReview?handler=SaveCommitteeMembers", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        alert("Committee members successfully saved!");
+                        // Optionally, refresh the page or update the UI
+                    } else {
+                        alert("Failed to save committee members: " + result.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while saving the committee members.");
+                });
+        });
+    </script>
 }
