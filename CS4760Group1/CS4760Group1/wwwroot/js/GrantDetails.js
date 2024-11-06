@@ -1,34 +1,36 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
+    // Getting each combo box by its ID
+    const a1Budget = document.getElementById('A1Budget'); // Weight 3
+    const a1Support = document.getElementById('A1Support'); // Weight 3
+    const a2UniversityProgramReputation = document.getElementById('A2UniversityProgramReputation'); // Weight 5
+    const a2InnovativeTeaching = document.getElementById('A2InnovativeTeaching'); // Weight 5
+    const a2CommunityEducationalEngagement = document.getElementById('A2CommunityEducationalEngagement'); // Weight 5
+    const a3ProcedureMethods = document.getElementById('A3ProcedureMethods'); // Weight 1
+    const a3TimelineBudgetDescription = document.getElementById('A3TimelineBudgetDescription'); // Weight 1
+    const a3EvaluationAndDissemination = document.getElementById('A3EvaluationAndDissemination'); // Weight 3
+    const a3EvidentialDocumentation = document.getElementById('A3EvidentialDocumentation'); // Weight 1
 
-    var a1 = document.getElementById('A1'); //w 3 
-    var a2 = document.getElementById('A2'); //w 5
-    var procMethods = document.getElementById('ProcMethods'); //w 1
-    var timeline = document.getElementById('Timeline'); //w 1
-    var evalDissem = document.getElementById('EvalDissem'); //w 3
-    var evidenceDoc = document.getElementById('EvidenceDoc'); //w 1
-
-    
+    const calcBtn = document.getElementById('calcBtn');
 
     calcBtn.addEventListener('click', function () {
+        // Parsing the values and applying weights
+        const totalScore =
+            (parseFloat(a1Budget.value) * 3) +
+            (parseFloat(a1Support.value) * 3) +
+            (parseFloat(a2UniversityProgramReputation.value) * 5) +
+            (parseFloat(a2InnovativeTeaching.value) * 5) +
+            (parseFloat(a2CommunityEducationalEngagement.value) * 5) +
+            (parseFloat(a3ProcedureMethods.value) * 1) +
+            (parseFloat(a3TimelineBudgetDescription.value) * 1) +
+            (parseFloat(a3EvaluationAndDissemination.value) * 3) +
+            (parseFloat(a3EvidentialDocumentation.value) * 1);
 
-        const scoreA1 = parseFloat(a1.value);
-        const scoreA2 = parseFloat(a2.value);
-        const scoreProcMethods = parseFloat(procMethods.value);
-        const scoreTimeline = parseFloat(timeline.value);
-        const scoreEvalDissem = parseFloat(evalDissem.value);
-        const scoreEvidenceDoc = parseFloat(evidenceDoc.value);
-
-        //Multiply review number by area weight and then add areas. Then divide by max area num (area weight * max score)
-
-        //I don't understand what the equation is supposed to actually look like, so using place holder. 
-        const totalScore = scoreA1 + scoreA2 + scoreProcMethods + scoreTimeline + scoreEvalDissem + scoreEvidenceDoc;
-
+        // Displaying the calculated score
         document.getElementById('calc-score').textContent = totalScore;
         document.getElementById('FinalScore').value = totalScore;
 
-
+        // Toggle visibility to show the calculated score
         document.getElementById('grant-score').style.display = 'block';
         document.getElementById('grant-review-grading').style.display = 'none';
     });
-
 });

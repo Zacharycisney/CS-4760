@@ -18,6 +18,7 @@ namespace CS4760Group1.Pages.Departments
         {
             _context = context;
         }
+        public List<SelectListItem> UserList { get; set; }
 
         [BindProperty]
         public int SelectedCollegeId { get; set; }
@@ -26,6 +27,20 @@ namespace CS4760Group1.Pages.Departments
 
         [BindProperty]
         public Department Department { get; set; } = new Department();
+
+        /// <summary>
+        /// Auto populates the PI 
+        /// </summary>
+        private void PopulateUserList()
+        {
+            UserList = _context.Users
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = $"{c.FirstName} {c.LastName}"
+                })
+                .ToList();
+        }
 
         public IActionResult OnGet()
         {
@@ -38,13 +53,19 @@ namespace CS4760Group1.Pages.Departments
                 })
                 .ToList();
 
+            PopulateUserList();
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
+            PopulateUserList();
+
             if (!ModelState.IsValid)
             {
+                PopulateUserList();
+
                 // Reload the colleges list if validation fails
                 CollegeList = _context.College
                     .Select(c => new SelectListItem
