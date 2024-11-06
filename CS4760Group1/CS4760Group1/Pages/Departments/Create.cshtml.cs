@@ -28,9 +28,7 @@ namespace CS4760Group1.Pages.Departments
         [BindProperty]
         public Department Department { get; set; } = new Department();
 
-        /// <summary>
-        /// Auto populates the PI 
-        /// </summary>
+
         private void PopulateUserList()
         {
             UserList = _context.Users

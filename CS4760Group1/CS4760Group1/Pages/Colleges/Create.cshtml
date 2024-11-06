@@ -20,7 +20,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="College.Dean" class="control-label"></label>
-                <input asp-for="College.Dean" class="form-control" />
+                <select asp-for="College.Dean" class="form-control" asp-items="Model.UserList">
+                    <option value="">Select a Dean</option>
+                </select>
                 <span asp-validation-for="College.Dean" class="text-danger"></span>
             </div>
             <div class="form-group">

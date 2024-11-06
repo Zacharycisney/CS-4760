@@ -21,15 +21,34 @@ namespace CS4760Group1.Pages.Colleges
 
         public IActionResult OnGet()
         {
+            PopulateUserList();
+
             return Page();
         }
+
+        public List<SelectListItem> UserList { get; set; }
+
 
         [BindProperty]
         public College College { get; set; } = default!;
 
+        private void PopulateUserList()
+        {
+            UserList = _context.Users
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = $"{c.FirstName} {c.LastName}"
+                })
+                .ToList();
+        }
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+
+            PopulateUserList();
+
             if (!ModelState.IsValid)
             {
                 return Page();
