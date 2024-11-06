@@ -8,6 +8,85 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Table</title>
     <link rel="stylesheet" href="~/css/resourcepage.css" />
+    <script>
+
+        
+
+        function calculateRowTotal(row) {
+            let donor1 = parseFloat(document.querySelector(`[name='donor1${row}']`).value) || 0;
+            let donor2 = parseFloat(document.querySelector(`[name='donor2${row}']`).value) || 0;
+            let donor3 = parseFloat(document.querySelector(`[name='donor3${row}']`).value) || 0;
+            let fundsRequested = parseFloat(document.querySelector(`[name='fundsRequested1${row}']`).value) || 0;
+
+            let grandTotal = donor1 + donor2 + donor3 + fundsRequested;
+
+            // Set the grand total for the row and format as currency
+            document.querySelector(`[name='grandTotal1${row}']`).value = formatCurrency(grandTotal);
+
+            calculateColumnTotals();
+            calculateBigGrandTotal();
+        }
+
+        function calculateColumnTotals() {
+            let donor1Total = 0, donor2Total = 0, donor3Total = 0, fundsRequestedTotal = 0, grandTotalTotal = 0;
+
+            const rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o'];
+
+            rows.forEach(row => {
+                donor1Total += parseFloat(document.querySelector(`[name='donor1${row}']`).value) || 0;
+                donor2Total += parseFloat(document.querySelector(`[name='donor2${row}']`).value) || 0;
+                donor3Total += parseFloat(document.querySelector(`[name='donor3${row}']`).value) || 0;
+                fundsRequestedTotal += parseFloat(document.querySelector(`[name='fundsRequested1${row}']`).value) || 0;
+                grandTotalTotal += parseFloat(document.querySelector(`[name='grandTotal1${row}']`).value) || 0;
+            });
+
+            // Set the totals for each column and format as currency
+            document.querySelector(`[name='donor1p']`).value = formatCurrency(donor1Total);
+            document.querySelector(`[name='donor2p']`).value = formatCurrency(donor2Total);
+            document.querySelector(`[name='donor3p']`).value = formatCurrency(donor3Total);
+            document.querySelector(`[name='fundsRequested1p']`).value = formatCurrency(fundsRequestedTotal);
+            document.querySelector(`[name='grandTotal1p']`).value = formatCurrency(grandTotalTotal);
+
+        }
+
+        function calculateBigGrandTotal() {
+            let bigGrandTotal = 0;
+
+            // Select all row grand total inputs
+            const rowTotals = document.querySelectorAll(`[name^='grandTotal1']`);
+
+            // Sum up all row totals
+            rowTotals.forEach(input => {
+                bigGrandTotal += parseFloat(input.value.replace(/[^\d.-]/g, '')) || 0;
+            });
+
+            // Set the big grand total in the specified input and format as currency
+            document.querySelector(`[name='grandTotal1p']`).value = formatCurrency(bigGrandTotal);
+        }
+
+
+
+        function formatCurrency(value) {
+            return `$${value.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                input.addEventListener('input', () => {
+                    let row = input.name.match(/\d(\D)$/)?.[1];
+                    if (row) calculateRowTotal(row);
+                });
+
+                // Format the initial values if any are pre-filled
+                if (input.value) {
+                    input.value = formatCurrency(parseFloat(input.value) || 0);
+                }
+            });
+
+
+        });
+    </script>
+
     
 </head>
 <body>
@@ -30,28 +109,28 @@
                 <td colspan="5">1) PERSONNEL RESOURCES (assistants, consultants, released time)</td>
             </tr>
             <tr>
-                <td>a)</td>
-                <td><input type="text" name="donor1a" /></td>
-                <td><input type="text" name="donor2a" /></td>
-                <td><input type="text" name="donor3a" /></td>
-                <td><input type="text" name="fundsRequested1a" /></td>
-                <td><input type="text" name="grandTotal1a" /></td>
+                    <td>a)<input type="text" name="name1a" /></td>
+                    <td><input type="text" name="donor1a" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2a" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3a" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1a" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1a" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>b)</td>
-                <td><input type="text" name="donor1b" /></td>
-                <td><input type="text" name="donor2b" /></td>
-                <td><input type="text" name="donor3b" /></td>
-                <td><input type="text" name="fundsRequested1b" /></td>
-                <td><input type="text" name="grandTotal1b" /></td>
+                    <td>b)<input type="text" name="name1b" /></td>
+                    <td><input type="text" name="donor1b" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2b" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3b" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1b" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1b" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>c)</td>
-                <td><input type="text" name="donor1c" /></td>
-                <td><input type="text" name="donor2c" /></td>
-                <td><input type="text" name="donor3c" /></td>
-                <td><input type="text" name="fundsRequested1c" /></td>
-                <td><input type="text" name="grandTotal1c" /></td>
+                    <td>c)<input type="text" name="name1c" /></td>
+                    <td><input type="text" name="donor1c" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2c" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3c" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1c" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1c" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
                 <td colspan="5">
@@ -60,118 +139,118 @@
                 </td>
             </tr>
             <tr>
-                <td>a)</td>
-                <td><input type="text" name="donor1d" /></td>
-                <td><input type="text" name="donor2d" /></td>
-                <td><input type="text" name="donor3d" /></td>
-                <td><input type="text" name="fundsRequested1d" /></td>
-                <td><input type="text" name="grandTotal1d" /></td>
+                    <td>a)<input type="text" name="name1d" /></td>
+                    <td><input type="text" name="donor1d" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2d" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3d" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1d" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1d" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>b)</td>
-                <td><input type="text" name="donor1e" /></td>
-                <td><input type="text" name="donor2e" /></td>
-                <td><input type="text" name="donor3e" /></td>
-                <td><input type="text" name="fundsRequested1e" /></td>
-                <td><input type="text" name="grandTotal1e" /></td>
+                    <td>b)<input type="text" name="name1e" /></td>
+                    <td><input type="text" name="donor1e" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2e" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3e" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1e" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1e" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>c)</td>
-                    <td><input type="text" name="donor1f" /></td>
-                    <td><input type="text" name="donor2f" /></td>
-                    <td><input type="text" name="donor3f" /></td>
-                    <td><input type="text" name="fundsRequested1f" /></td>
-                    <td><input type="text" name="grandTotal1f" /></td>
+                    <td>c)<input type="text" name="name1f" /></td>
+                    <td><input type="text" name="donor1f" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2f" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3f" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1f" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1f" placeholder="$0.00" readonly /></td>
             </tr>
 
             <tr>
                  <td colspan="5">2) EQUIPMENT AND MATERIALS</td>
             </tr>
             <tr>
-                <td>a)</td>
-                <td><input type="text" name="donor1g" /></td>
-                <td><input type="text" name="donor2g" /></td>
-                <td><input type="text" name="donor3g" /></td>
-                <td><input type="text" name="fundsRequested1g" /></td>
-                <td><input type="text" name="grandTotal1g" /></td>
+                    <td>a)<input type="text" name="nameg" /></td>
+                    <td><input type="text" name="donor1g" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2g" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3g" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1g" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1g" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>b)</td>
-                <td><input type="text" name="donor1h" /></td>
-                <td><input type="text" name="donor2h" /></td>
-                <td><input type="text" name="donor3h" /></td>
-                <td><input type="text" name="fundsRequested1h" /></td>
-                <td><input type="text" name="grandTotal1h" /></td>
+                    <td>b)<input type="text" name="name1h" /></td>
+                    <td><input type="text" name="donor1h" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2h" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3h" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1h" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1h" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>c)</td>
-                <td><input type="text" name="donor1i" /></td>
-                <td><input type="text" name="donor2i" /></td>
-                <td><input type="text" name="donor3i" /></td>
-                <td><input type="text" name="fundsRequested1i" /></td>
-                <td><input type="text" name="grandTotal1i" /></td>
+                    <td>c)<input type="text" name="name1i" /></td>
+                    <td><input type="text" name="donor1i" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2i" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3i" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1i" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1i" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
                  <td colspan="5">3) TRAVEL</td>
             </tr>
             <tr>
-                <td>a)</td>
-                <td><input type="text" name="donor1j" /></td>
-                <td><input type="text" name="donor2j" /></td>
-                <td><input type="text" name="donor3j" /></td>
-                <td><input type="text" name="fundsRequested1j" /></td>
-                <td><input type="text" name="grandTotal1j" /></td>
+                    <td>a)<input type="text" name="name1j"/></td>
+                    <td><input type="text" name="donor1j" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2j" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3j" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1j" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1j" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>b)</td>
-                <td><input type="text" name="donor1k" /></td>
-                <td><input type="text" name="donor2k" /></td>
-                <td><input type="text" name="donor3k" /></td>
-                <td><input type="text" name="fundsRequested1k" /></td>
-                <td><input type="text" name="grandTotal1k" /></td>
+                    <td>b)<input type="text" name="name1k" /></td>
+                    <td><input type="text" name="donor1k" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2k" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3k" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1k" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1k" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>c)</td>
-                <td><input type="text" name="donor1l" /></td>
-                <td><input type="text" name="donor2l" /></td>
-                <td><input type="text" name="donor3l" /></td>
-                <td><input type="text" name="fundsRequested1l" /></td>
-                <td><input type="text" name="grandTotal1l" /></td>
+                    <td>c)<input type="text" name="name1l" /></td>
+                    <td><input type="text" name="donor1l" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2l" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3l" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1l" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1l" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
                 <td colspan="5">4) OTHER</td>
             </tr>
             <tr>
-                <td>a)</td>
-                <td><input type="text" name="donor1m" /></td>
-                <td><input type="text" name="donor2m" /></td>
-                <td><input type="text" name="donor3m" /></td>
-                <td><input type="text" name="fundsRequested1m" /></td>
-                <td><input type="text" name="grandTotal1m" /></td>
+                    <td>a)<input type="text" name="name1m" /></td>
+                    <td><input type="text" name="donor1m" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2m" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3m" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1m" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1m" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>b)</td>
-                <td><input type="text" name="donor1n" /></td>
-                <td><input type="text" name="donor2n" /></td>
-                <td><input type="text" name="donor3n" /></td>
-                <td><input type="text" name="fundsRequested1n" /></td>
-                <td><input type="text" name="grandTotal1n" /></td>
+                    <td>b)<input type="text" name="name1" /></td>
+                    <td><input type="text" name="donor1n" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2n" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3n" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1n" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1n" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
-                <td>c)</td>
-                <td><input type="text" name="donor1o" /></td>
-                <td><input type="text" name="donor2o" /></td>
-                <td><input type="text" name="donor3o" /></td>
-                <td><input type="text" name="fundsRequested1o" /></td>
-                <td><input type="text" name="grandTotal1o" /></td>
+                    <td>c)<input type="text" name="name1o" /></td>
+                    <td><input type="text" name="donor1o" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor2o" placeholder="$0.00" /></td>
+                    <td><input type="text" name="donor3o" placeholder="$0.00" /></td>
+                    <td><input type="text" name="fundsRequested1o" placeholder="$0.00" /></td>
+                    <td><input type="text" name="grandTotal1o" placeholder="$0.00" readonly /></td>
             </tr>
             <tr>
                 <td>TOTALS</td>
-                    <td><input type="text" name="donor1p" /></td>
-                    <td><input type="text" name="donor2p" /></td>
-                    <td><input type="text" name="donor3p" /></td>
-                    <td><input type="text" name="fundsRequested1p" /></td>
-                    <td><input type="text" name="grandTotal1p" /></td>
+                    <td><input type="text" name="donor1p" placeholder="$0.00" readonly /></td>
+                    <td><input type="text" name="donor2p" placeholder="$0.00" readonly /></td>
+                    <td><input type="text" name="donor3p" placeholder="$0.00" readonly /></td>
+                    <td><input type="text" name="fundsRequested1p" placeholder="$0.00" readonly /></td>
+                    <td><input type="text" name="grandTotal1p" placeholder="$0.00" readonly /></td>
             </tr>
                
 
