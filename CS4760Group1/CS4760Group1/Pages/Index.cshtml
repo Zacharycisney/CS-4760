@@ -16,25 +16,26 @@
 
         <h1>Applied Grants</h1>
 
-        <div class="grants-container">
-            @foreach (var grant in Model.Grants.Where(g => g.Status == "Under Review" || g.Status == "Not Reviewed"))
-            {
-                <div class="grant-card">
-                    <div class="grant-header">
-                        <h2 class="grant-title">@grant.Title</h2>
-                        <span class ="grant-status @Model.GetStatusClass(grant.Status)">@grant.Status</span>
-                    </div>
-                    <p>Type: @grant.Type</p>
+        <div id="AppliedGrants">
+            <h1>Applied Grants</h1>
+            <div class="grants-container">
+                @foreach (var grant in Model.Grants.Where(g => g.Status == "Under Review" || g.Status == "Not Reviewed"))
+                {
 
-                    <!--<p>Duration: grant.Duration months</p>--> <!-- Evaluate how to deal with duration and dates-->
-                    <p>Duration: NA</p>
-
-                    <p>Amount: $@grant.Amount.00</p>
-                </div>
-            }
+                    <a asp-page="/GrantForm" asp-route-id="@grant.Id" style="text-decoration: none; color: inherit;">
+                        <div class="grant-card">
+                            <div class="grant-header">
+                                <h2 class="grant-title">@grant.Title</h2>
+                                <span class="grant-status @Model.GetStatusClass(grant.Status)">@grant.Status</span>
+                            </div>
+                            <p>Type: @grant.Type</p>
+                            <p>Duration: NA</p> <!-- Placeholder for duration -->
+                            <p>Amount: $@grant.Amount</p>
+                        </div>
+                    </a>
+                }
+            </div>
         </div>
-
-    </div>
 
     <!-- Approved Grants Section -->
     <div id="ApprovedGrants">
@@ -55,7 +56,7 @@
                     <!--<p>Duration: grant.Duration months</p>--> <!-- Evaluate how to deal with duration and dates-->
                     <p>Duration: NA</p>
                     
-                    <p>Amount: $@grant.Amount.00</p>
+                    <p>Amount: $@grant.Amount</p>
                 </div>
             }
         </div>
