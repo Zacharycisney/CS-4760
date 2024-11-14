@@ -1,0 +1,47 @@
+﻿@page
+@model CS4760Group1.Pages.ChairApprovalModel
+
+@{
+    ViewData["Title"] = "ChairApproval";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Chair Approval</h1>
+
+<div class="form-group">
+    <label asp-for="SelectedDepartmentId" class="control-label">Department</label>
+    <select asp-for="SelectedDepartmentId" asp-items="Model.DepartmentList" class="form-control" id="departmentSelect">
+        <option value="">Select Department</option>
+    </select>
+    <span asp-validation-for="SelectedDepartmentId" class="text-danger"></span>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Grant Title</th>
+            <th>Requested Amount</th>
+            <th>Approval Rating</th>
+            <th>Grant Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Grant)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>@(Model.ApprovalRatings.ContainsKey(item.Id) ? $"{Model.ApprovalRatings[item.Id]:P2}" : "N/A")</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("departmentSelect").addEventListener("change", function () {
+        var selectedValue = this.value;
+        var url = '@Url.Page("/ChairApproval")' + '?selectedDepartmentId=' + encodeURIComponent(selectedValue);
+        window.location.href = url;
+    });
+</script>

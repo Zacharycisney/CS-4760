@@ -1,299 +1,299 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CS4760Group1.bundle.scp.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CS4760Group1.bundle.scp.css",
       "PackagePath": "staticwebassets\\CS4760Group1.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\GrantReview.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\GrantReview.css",
       "PackagePath": "staticwebassets\\css\\GrantReview.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\homepage.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\homepage.css",
       "PackagePath": "staticwebassets\\css\\homepage.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\resourcepage.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\resourcepage.css",
       "PackagePath": "staticwebassets\\css\\resourcepage.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\282d1a81-d4e4-4eef-ba4d-0d0ad3a6d7d6_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\282d1a81-d4e4-4eef-ba4d-0d0ad3a6d7d6_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\282d1a81-d4e4-4eef-ba4d-0d0ad3a6d7d6_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\34512ef4-ef28-448a-b636-479680b503c7_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\34512ef4-ef28-448a-b636-479680b503c7_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\34512ef4-ef28-448a-b636-479680b503c7_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\47fb1d6a-2c24-4f64-8eb8-ca9c73a18655_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\47fb1d6a-2c24-4f64-8eb8-ca9c73a18655_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\47fb1d6a-2c24-4f64-8eb8-ca9c73a18655_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\48eb4d2d-0606-425b-84ab-67dd14725a03_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\48eb4d2d-0606-425b-84ab-67dd14725a03_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\48eb4d2d-0606-425b-84ab-67dd14725a03_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\6dfd7c11-7ba8-4f13-ad2c-218a8700c786_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\6dfd7c11-7ba8-4f13-ad2c-218a8700c786_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\6dfd7c11-7ba8-4f13-ad2c-218a8700c786_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\9a6a4ea6-6f1e-4902-a934-3988c7053f62_important.jpg",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\grant_files\\9a6a4ea6-6f1e-4902-a934-3988c7053f62_important.jpg",
       "PackagePath": "staticwebassets\\grant_files\\9a6a4ea6-6f1e-4902-a934-3988c7053f62_important.jpg"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\AddRemoveCommitteeMember.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\AddRemoveCommitteeMember.js",
       "PackagePath": "staticwebassets\\js\\AddRemoveCommitteeMember.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\FilterUsers.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\FilterUsers.js",
       "PackagePath": "staticwebassets\\js\\FilterUsers.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\GrantDetails.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\GrantDetails.js",
       "PackagePath": "staticwebassets\\js\\GrantDetails.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\UpdateDepartments.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\UpdateDepartments.js",
       "PackagePath": "staticwebassets\\js\\UpdateDepartments.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\zacci\\OneDrive\\Desktop\\Quick Drop\\Fall 2024\\CS 4760\\CS-4760\\CS4760Group1\\CS4760Group1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

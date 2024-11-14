@@ -572,3 +572,8 @@ C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\obj\Debug\ne
 C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\obj\Debug\net8.0\CS4760Group1.pdb
 C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\obj\Debug\net8.0\CS4760Group1.genruntimeconfig.cache
 C:\Users\carsonmoore\Source\Repos\CS-4760\CS4760Group1\CS4760Group1\obj\Debug\net8.0\ref\CS4760Group1.dll
+C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\zacci\OneDrive\Desktop\Quick Drop\Fall 2024\CS 4760\CS-4760\CS4760Group1\CS4760Group1\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
