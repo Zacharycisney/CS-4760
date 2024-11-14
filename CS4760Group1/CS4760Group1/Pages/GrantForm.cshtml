@@ -161,7 +161,6 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
-
 @section Scripts {
     <script src="~/js/UpdateDepartments.js"></script>
     @{
@@ -169,7 +168,23 @@
     }
 
     <script>
+
+        function updateTotal() {
+            // Get values of Amount and AmountFromOther
+            const amount = parseFloat(document.getElementById("GrantDraft_Amount").value) || 0;
+            const amountFromOther = parseFloat(document.getElementById("GrantDraft_AmountFromOther").value) || 0;
+
+            // Calculate the total
+            const totalAmount = amount + amountFromOther;
+
+            // Set the calculated total as the value of the TotalAmount input
+            document.getElementById("GrantDraft_TotalAmount").value = totalAmount.toFixed(2);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
+           
+
+
             var subjectCheckbox = document.getElementById('subjectNeeded');
             var approvalFormDiv = document.getElementById('approvalUpload');
 
