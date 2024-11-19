@@ -23,9 +23,12 @@ namespace CS4760Group1.Pages
         public IList<Grant> Grant { get; set; } = default!;
         public List<SelectListItem> DepartmentList { get; set; }
         public int SelectedDepartmentId { get; set; } // Holds the selected department ID
-
         public Dictionary<int, double> ApprovalRatings { get; set; } = new Dictionary<int, double>();
 
+
+        /// <summary>
+        /// Retrieves the departments for combo box
+        /// </summary>
         public void SetDepartments()
         {
             DepartmentList = _context.Department
@@ -51,24 +54,97 @@ namespace CS4760Group1.Pages
 
             Grant = await query.ToListAsync();
 
-            // Calculate approval rating for each grant
+            await getApprovalRatingsAsync();
+
+            // Sort grants by approval ratings (highest to lowest)
+            Grant = Grant.OrderByDescending(g => ApprovalRatings.ContainsKey(g.Id) ? ApprovalRatings[g.Id] : 0).ToList();
+        }
+
+        /// <summary>
+        /// Does the math on all the grants as well as check for blank grant list
+        /// </summary>
+        /// <returns></returns>
+        public async Task getApprovalRatingsAsync()
+        {
+            // Prevents race conditions when grants is not populated when filtering
+            if (Grant == null || !Grant.Any())
+            {
+                ApprovalRatings.Clear();
+                return;
+            }
+
+            // Querying the data
+            var reviewStatsQuery = _context.GrantReview
+                .GroupBy(gr => gr.GrantID)
+                .Select(group => new
+                {
+                    GrantId = group.Key,
+                    ApprovalRating = group.Average(gr => gr.ReviewScore),
+                    ReviewCount = group.Count()
+                });
+
+            var reviewStats = await reviewStatsQuery.ToDictionaryAsync(x => x.GrantId, x => new { x.ApprovalRating, x.ReviewCount });
+
+            // Doing the math on the review scores
             foreach (var grant in Grant)
             {
-                //var reviews = await _context.GrantReview
-                //    .Where(gr => gr.GrantID == grant.Id)
-                //    .ToListAsync();
-
-                //if (reviews.Any())
-                //{
-                //    float totalScore = reviews.Sum(r => r.ReviewScore);
-                //    float totalReviewers = reviews.Count;
-                //    ApprovalRatings[grant.Id] = (double)totalScore / totalReviewers;
-                //}
-                //else
+                if (reviewStats.TryGetValue(grant.Id, out var stats))
                 {
-                    ApprovalRatings[grant.Id] = 0; // No reviews, set rating to 0
+                    // NOTE: The score is currently based on a whole number that has a MAX of 54
+                    // (the math takes the total # of reviews and then multiplies by max score and then divides the total score)
+                    ApprovalRatings[grant.Id] = stats.ApprovalRating / (stats.ReviewCount * 54); 
+
+                }
+                else // If there are no reviews
+                {
+                    ApprovalRatings[grant.Id] = 0;
                 }
             }
         }
+
+
+        /// <summary>
+        /// Approval function for approve button
+        /// </summary>
+        /// <param name="grantId"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> OnPostApproveGrantAsync(int grantId)
+        {
+            // Catching invalid grants
+
+            var grant = await _context.Grant.FindAsync(grantId);
+            if (grant == null)
+            {
+                return NotFound();
+            }
+
+            // Update the status to "Approved"
+            grant.Status = "Approved";
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage(); // Refresh the page
+        }
+
+        /// <summary>
+        /// Denial function for deny button
+        /// </summary>
+        /// <param name="grantId"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> OnPostDenyGrantAsync(int grantId)
+        {
+            // Catching invalid grants
+            var grant = await _context.Grant.FindAsync(grantId);
+            if (grant == null)
+            {
+                return NotFound();
+            }
+
+            // Update the status to "Denied"
+            grant.Status = "Denied";
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage(); // Refresh the page
+        }
+
     }
 }

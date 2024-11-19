@@ -23,20 +23,57 @@
             <th>Requested Amount</th>
             <th>Approval Rating</th>
             <th>Grant Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
+        @{
+            bool belowThreshold = false; // Tracks if the break has been added
+        }
+
         @foreach (var item in Model.Grant)
         {
+            // Determine approval rating for the current grant
+            double approvalRating = Model.ApprovalRatings.ContainsKey(item.Id)
+            ? Model.ApprovalRatings[item.Id]
+            : 0;
+
+            // Conditional break for grants below 80%
+            if (!belowThreshold && approvalRating < 0.8)
+            {
+                belowThreshold = true;
+                <tr>
+                    <td colspan="5">
+                        <hr style="border: 2px solid black; margin: 0;" />
+                        <p style="text-align: center; font-weight: bold; margin: 1px">Below 80% Approval Rating</p>
+                        <hr style="border: 2px solid black; margin: 0;" />
+
+                    </td>
+                </tr>
+            }
+
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                 <td>@Html.DisplayFor(modelItem => item.Amount)</td>
-                <td>@(Model.ApprovalRatings.ContainsKey(item.Id) ? $"{Model.ApprovalRatings[item.Id]:P2}" : "N/A")</td>
+                <td>@(approvalRating.ToString("P2"))</td>
                 <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>
+                    <div class="btn-group" role="group" style="display: inline-flex;">
+                        <form method="post" asp-page-handler="DenyGrant" style="margin-right: 10px;">
+                            <input type="hidden" name="grantId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Deny</button>
+                        </form>
+                        <form method="post" asp-page-handler="ApproveGrant">
+                            <input type="hidden" name="grantId" value="@item.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
 
 <script>
     document.getElementById("departmentSelect").addEventListener("change", function () {
