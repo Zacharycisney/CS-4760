@@ -1,3 +1,5 @@
+using CS4760Group1.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,20 +10,50 @@ namespace CS4760Group1.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly CS4760Group1.Data.CS4760Group1Context _context;
+        private readonly UserManager<User> _userManager;
 
-        public IndexModel(ILogger<IndexModel> logger, CS4760Group1.Data.CS4760Group1Context context)
+        public IndexModel(ILogger<IndexModel> logger, CS4760Group1.Data.CS4760Group1Context context, UserManager<User> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         public IList<Models.Grant> Grants { get; set; } = default!;
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
         public List<Deadline> Deadlines { get; set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Role { get; private set; }
 
         public async Task OnGetAsync()
         {
+            var loggedInUserId = int.Parse(_userManager.GetUserId(User)); // Retrieves the user ID
+            var dbUser = await _context.Users
+                               .Where(u => u.Id == loggedInUserId)
+                               .FirstOrDefaultAsync();
+
+            if (dbUser != null)
+            {
+                FirstName = dbUser.FirstName;
+                LastName = dbUser.LastName;
+                Role = dbUser.Role.ToString();
+
+
+                ViewData["Role"] = Role;
+
+                // Optionally, log these values for debugging
+                _logger.LogInformation("User Data: {FirstName} {LastName}, Role: {Role}",
+                    FirstName, LastName, Role);
+            }
+            else
+            {
+                FirstName = "Guest";
+                LastName = string.Empty;
+                Role = "Unknown";
+            }
+
             var grants = from c in _context.Grant
                          select c;
             if (grants.Any())

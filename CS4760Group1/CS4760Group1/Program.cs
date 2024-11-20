@@ -11,6 +11,15 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CS4760Group1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS4760Group1Context") ?? throw new InvalidOperationException("Connection string 'CS4760Group1Context' not found.")));
 
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 //builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CS4760Group1Context>();
 builder.Services.AddScoped<IPasswordHasher<User>, PlainTextPasswordHasher<User>>();
 builder.Services.AddDefaultIdentity<User>(options =>
@@ -93,6 +102,8 @@ app.UseRouting();
 
 app.UseAuthentication(); // part of identity framework
 app.UseAuthorization();
+
+app.UseSession();
 
 app.Use(async (context, next) =>
 {
