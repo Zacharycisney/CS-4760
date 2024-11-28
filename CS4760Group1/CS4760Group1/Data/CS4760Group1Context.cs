@@ -35,6 +35,15 @@ namespace CS4760Group1.Data
                     v => (Role)Enum.Parse(typeof(Role), v)  // Convert the string back to the enum when reading from the database
                 );
 
+            // Mapping only concrete classes (Grant and GrantDraft) to their respective tables
+            modelBuilder.Entity<Grant>().ToTable("Grants");  // Table for Grant
+            modelBuilder.Entity<GrantDraft>().ToTable("GrantDrafts");  // Table for GrantDraft
+
+            // Specify foreign key relationships (assuming GrantFile is related to Grant)
+            modelBuilder.Entity<GrantFile>()
+                .HasOne(gf => gf.Grant) // GrantFile references Grant (or GrantDraft)
+                .WithMany() // One Grant can have many GrantFiles
+                .HasForeignKey(gf => gf.GrantID); // The GrantID is the foreign key in GrantFile
 
         }
     }

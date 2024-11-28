@@ -2,7 +2,7 @@
 
 namespace CS4760Group1.Models
 {
-    public class Grant
+    public class Grant : GrantBase
     {
         public int Id { get; set; }
 

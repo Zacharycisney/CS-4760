@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using static CS4760Group1.Pages.IndexModel;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 
 namespace CS4760Group1.Pages
@@ -23,11 +25,12 @@ namespace CS4760Group1.Pages
         {
             _context = context;
             _environment = environment;
-            Grant = new Grant();
         }
 
         [BindProperty]
-        public Grant Grant { get; set; }
+        public GrantBase Grant { get; set; }
+
+
         public List<SelectListItem> UserList { get; set; }
 
         [BindProperty]
@@ -45,7 +48,7 @@ namespace CS4760Group1.Pages
         public IList<Department> Department { get; set; } = new List<Department>();
         public IList<College> College { get; set; } = new List<College>();
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool isDraft)
         {
             PopulateUserList();
             Department = await _context.Department.ToListAsync();
@@ -136,6 +139,9 @@ namespace CS4760Group1.Pages
             Department = await _context.Department.ToListAsync();
             College = await _context.College.ToListAsync();
 
+            
+
+
             if (Grant.Id > 0) // Check if we're in edit mode
             {
                 // Edit mode: load existing grant and update its properties
@@ -167,17 +173,33 @@ namespace CS4760Group1.Pages
             }
             else
             {
-                // Create mode: add a new grant with default status
-                Grant.Status = "Not Reviewed";
-                _context.Grant.Add(Grant);
+                //Get the value of if its being submitted as a draft or completed document
+                var submitType = Request.Form["action"];
+                bool isDraft = submitType == "Save Draft";
+
+                Grant = isDraft ? new GrantDraft() : new Grant();
+
+                if (!isDraft)
+                {
+                    // Create mode: add a new grant with default status
+                    Grant.Status = "Not Reviewed";
+                    var grant = (Grant)Grant;
+
+                    // Save each uploaded file
+                    await SaveFiles(grant);
+
+                    _context.Grant.Add(grant);
+                }
+                else {
+
+
+
+                    var draft = (GrantDraft)Grant;
+                    _context.GrantDraft.Add(draft);
+                }
             }
 
             // Save changes to database to assign Grant.Id if it's a new grant
-            await _context.SaveChangesAsync();
-
-            // Save each uploaded file
-            await SaveFiles(Grant);
-
             await _context.SaveChangesAsync();
 
             return RedirectToPage("Index");
@@ -240,5 +262,6 @@ namespace CS4760Group1.Pages
             public string applyingFor { get; set; }
             public string grantSeason { get; set; }
         }
+        
     }
 }

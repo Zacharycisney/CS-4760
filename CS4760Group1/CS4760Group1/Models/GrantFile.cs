@@ -17,6 +17,6 @@ namespace CS4760Group1.Models
         [Required]
         public string FilePath { get; set; }  // Path where the file is stored
 
-        public Grant Grant { get; set; }  // Navigation property
+        public GrantBase Grant { get; set; }  // Navigation property
     }
 }
