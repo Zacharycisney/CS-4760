@@ -93,16 +93,13 @@ namespace CS4760Group1.Pages
             await GetApprovalRatingsAsync();
         }
 
-        public async Task<IActionResult> OnPostApplyRangesAsync(List<RangeDto> ranges, int? selectedDepartmentId, double? minAvgRating)
+        public async Task<IActionResult> OnPostApplyRangesAsync(
+    List<RangeDto> ranges,
+    int? selectedDepartmentId,
+    double? minAvgRating,
+    bool distributeEqually)
         {
-            Console.Write("\nOn Post got called\n");
-
-            if (!ranges.Any())
-            {
-                ErrorMessage = "No ranges provided.";
-                Console.WriteLine($"\n{ErrorMessage}\n");
-                return RedirectToPage();
-            }
+            Console.WriteLine("\nOn Post got called\n");
 
             // Reapply filters from OnGetAsync
             var query = _context.Grant.AsQueryable();
@@ -129,12 +126,9 @@ namespace CS4760Group1.Pages
                         .Where(r => r.GrantID == g.Id)
                         .GroupBy(r => r.GrantID)
                         .Select(grp => grp.Average(r => r.ReviewScore))
-                        .FirstOrDefault() >= MinAvgRating);
+                        .FirstOrDefault() >= (MinAvgRating * 54));
             }
 
-            Console.Write("\n\nGet in Post called\n\n");
-
-            // Fetch the filtered grants
             var filteredGrants = await query.Where(g => g.Status == "Approved").ToListAsync();
 
             if (!filteredGrants.Any())
@@ -145,17 +139,15 @@ namespace CS4760Group1.Pages
             }
 
             // Populate approval ratings
-                var ratings = await _context.GrantReview
-                    .GroupBy(r => r.GrantID)
-                    .Select(g => new { g.Key, AvgRating = g.Average(r => r.ReviewScore) })
-                    .ToDictionaryAsync(g => g.Key, g => g.AvgRating / 54);
+            var ratings = await _context.GrantReview
+                .GroupBy(r => r.GrantID)
+                .Select(g => new { g.Key, AvgRating = g.Average(r => r.ReviewScore) })
+                .ToDictionaryAsync(g => g.Key, g => g.AvgRating / 54);
 
-                foreach (var grant in filteredGrants)
-                {
-                    Console.Write($"grantId, {grant.Id}");
-                    ApprovalRatings[grant.Id] = ratings.ContainsKey(grant.Id) ? ratings[grant.Id] : 0;
-                }
-
+            foreach (var grant in filteredGrants)
+            {
+                ApprovalRatings[grant.Id] = ratings.ContainsKey(grant.Id) ? ratings[grant.Id] : 0;
+            }
 
             Console.WriteLine("\n\nApprovalRatings Key-Value Pairs:\n");
             foreach (var kvp in ApprovalRatings)
@@ -163,30 +155,26 @@ namespace CS4760Group1.Pages
                 Console.WriteLine($"Grant ID: {kvp.Key}, Approval Rating: {kvp.Value}");
             }
 
+            // Step 1: Apply ranges
             decimal totalDeduction = 0m;
+
+            var grantsAllocatedByRange = new HashSet<int>();
 
             foreach (var grant in filteredGrants)
             {
-                Console.WriteLine($"\nGrant ID: {grant.Id}, Title: {grant.Title}, Amount: {grant.Amount}, TotalAmount: {grant.TotalAmount}\n");
-
                 if (!ApprovalRatings.ContainsKey(grant.Id)) continue;
-                Console.Write("\n\nIt does?\n\n");
 
                 var avgRating = ApprovalRatings[grant.Id] * 100; // Convert back to percentage
 
                 foreach (var range in ranges)
                 {
-                    Console.WriteLine($"\range: {range}\n");
                     if (avgRating >= range.Min && avgRating <= range.Max)
                     {
-                        Console.Write("avgRating >= range.Min && avgRating <= range.Max");
-                        Console.Write($"{avgRating} >= {range.Min} && {avgRating} <= {range.Max} == {avgRating >= range.Min && avgRating <= range.Max}");
                         var deduction = grant.Amount * (decimal)(range.Percentage / 100);
 
                         if (RemainingAllowance < deduction)
                         {
                             ErrorMessage = "Insufficient funds in the department allowance.";
-                            Console.Write($"\n{ErrorMessage}\n");
                             return RedirectToPage(new { selectedDepartmentId, minAvgRating = minAvgRating * 100 });
                         }
 
@@ -194,24 +182,46 @@ namespace CS4760Group1.Pages
                         grant.TotalAmount += deduction; // Update grant's allocated amount
                         totalDeduction += deduction;
 
+                        grantsAllocatedByRange.Add(grant.Id); // Mark grant as allocated
                         break; // Stop after applying the first matching range
                     }
                 }
             }
 
-            if (totalDeduction > 0)
+            // Step 2: Distribute remaining balance if "distributeEqually" is checked
+            if (distributeEqually)
             {
-                if (selectedDepartmentId.HasValue)
-                {
-                    var department = await _context.Department.FindAsync(selectedDepartmentId.Value);
-                    if (department != null)
-                    {
-                        department.Allowance = RemainingAllowance;
-                        Console.WriteLine($"Updated Department Allowance: {department.Allowance}");
-                    }
-                }
+                var grantsToDistribute = filteredGrants
+                    .Where(g => !grantsAllocatedByRange.Contains(g.Id))
+                    .ToList();
 
-                await _context.SaveChangesAsync(); // Save changes to the database
+                if (grantsToDistribute.Any())
+                {
+                    var allocationPerGrant = RemainingAllowance / grantsToDistribute.Count;
+
+                    foreach (var grant in grantsToDistribute)
+                    {
+                        grant.TotalAmount += allocationPerGrant;
+                    }
+
+                    RemainingAllowance = 0; // Fully allocate the remaining allowance
+                }
+            }
+
+            // Update the department allowance
+            if (selectedDepartmentId.HasValue)
+            {
+                var department = await _context.Department.FindAsync(selectedDepartmentId.Value);
+                if (department != null)
+                {
+                    department.Allowance = RemainingAllowance;
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            if (totalDeduction > 0 || distributeEqually)
+            {
                 ErrorMessage = null;
             }
             else
@@ -221,6 +231,7 @@ namespace CS4760Group1.Pages
 
             return RedirectToPage(new { selectedDepartmentId, minAvgRating = minAvgRating * 100 });
         }
+
 
 
         private async Task GetApprovalRatingsAsync()
