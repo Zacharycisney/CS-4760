@@ -201,10 +201,20 @@ namespace CS4760Group1.Pages
 
                     foreach (var grant in grantsToDistribute)
                     {
-                        grant.TotalAmount += allocationPerGrant;
+                        var amountToDistribute = grant.Amount - grant.TotalAmount;
+                        if( amountToDistribute < allocationPerGrant)
+                        {
+                            grant.TotalAmount += amountToDistribute;
+                            RemainingAllowance -= amountToDistribute;
+                        }
+                        else
+                        {
+                            grant.TotalAmount += allocationPerGrant;
+                            RemainingAllowance -= allocationPerGrant;
+                        }
                     }
 
-                    RemainingAllowance = 0; // Fully allocate the remaining allowance
+                    ; // Fully allocate the remaining allowance
                 }
             }
 
