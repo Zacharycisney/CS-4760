@@ -8,143 +8,223 @@ using Microsoft.EntityFrameworkCore;
 using CS4760Group1.Data;
 using CS4760Group1.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CS4760Group1.Pages
 {
     public class GrantAllocationModel : PageModel
     {
-        private readonly CS4760Group1.Data.CS4760Group1Context _context;
+        private readonly CS4760Group1Context _context;
 
-        public GrantAllocationModel(CS4760Group1.Data.CS4760Group1Context context)
+        public GrantAllocationModel(CS4760Group1Context context)
         {
             _context = context;
         }
 
-        public IList<Grant> Grant { get; set; } = default!;
+        public IList<Grant> Grant { get; set; } = new List<Grant>();
         public List<SelectListItem> DepartmentList { get; set; }
-        public int SelectedDepartmentId { get; set; } // Holds the selected department ID
+        public int? SelectedDepartmentId { get; set; }
+        public decimal? SelectedDepartmentAllowance { get; set; }
+        public decimal RemainingAllowance { get; set; }
         public Dictionary<int, double> ApprovalRatings { get; set; } = new Dictionary<int, double>();
+        public double? MinAvgRating { get; set; }
+        public string ErrorMessage { get; set; }
 
-
-        /// <summary>
-        /// Retrieves the departments for combo box
-        /// </summary>
         public void SetDepartments()
         {
             DepartmentList = _context.Department
-                .Select(c => new SelectListItem
+                .Select(d => new SelectListItem
                 {
-                    Value = c.Id.ToString(),
-                    Text = c.Name
+                    Value = d.Id.ToString(),
+                    Text = d.Name
                 })
                 .ToList();
         }
 
-        public async Task OnGetAsync(int? selectedDepartmentId)
+        public async Task OnGetAsync(int? selectedDepartmentId, double? minAvgRating = null)
         {
             SetDepartments();
-
-            // Filter grants by selected department if provided
             var query = _context.Grant.AsQueryable();
+            Console.Write("\non get called\n");
+
+            if (selectedDepartmentId.HasValue)
+            {
+                Console.Write("\ndepartmentId has value\n");
+                query = query.Where(g => g.DepartmentID == selectedDepartmentId.Value);
+                SelectedDepartmentId = selectedDepartmentId;
+                Console.Write("\ndepartmentId = " , SelectedDepartmentId.Value);
+
+                SelectedDepartmentAllowance = await _context.Department
+                    .Where(d => d.Id == selectedDepartmentId.Value)
+                    .Select(d => d.Allowance)
+                    .FirstOrDefaultAsync();
+
+                RemainingAllowance = SelectedDepartmentAllowance ?? 0;
+            }
+
+            if (minAvgRating.HasValue)
+            {
+                Console.Write("\nminAvgRating has value\n");
+                // Normalize the minimum average rating to the 0–54 scale
+                MinAvgRating = (minAvgRating / 100.0);
+                Console.Write("\nminAvgRating = ", MinAvgRating.Value.ToString());
+
+                // Include grants with sufficient approval ratings
+                query = query.Where(g =>
+                    _context.GrantReview
+                        .Where(r => r.GrantID == g.Id)
+                        .GroupBy(r => r.GrantID)
+                        .Select(grp => grp.Average(r => r.ReviewScore))
+                        .FirstOrDefault() >= MinAvgRating);
+            }
+
+            Grant = await query.Where(g => g.Status == "Approved").ToListAsync();
+
+            //foreach (var grant in Grant)
+            //{
+            //    Console.WriteLine($"\nGrant ID: {grant.Id}, Title: {grant.Title}, Amount: {grant.Amount}, TotalAmount: {grant.TotalAmount}\n");
+            //}
+            await GetApprovalRatingsAsync();
+        }
+
+        public async Task<IActionResult> OnPostApplyRangesAsync(List<RangeDto> ranges, int? selectedDepartmentId, double? minAvgRating)
+        {
+            Console.Write("\nOn Post got called\n");
+
+            if (!ranges.Any())
+            {
+                ErrorMessage = "No ranges provided.";
+                Console.WriteLine($"\n{ErrorMessage}\n");
+                return RedirectToPage();
+            }
+
+            // Reapply filters from OnGetAsync
+            var query = _context.Grant.AsQueryable();
+
             if (selectedDepartmentId.HasValue)
             {
                 query = query.Where(g => g.DepartmentID == selectedDepartmentId.Value);
-                SelectedDepartmentId = selectedDepartmentId.Value;
+                SelectedDepartmentId = selectedDepartmentId;
+
+                SelectedDepartmentAllowance = await _context.Department
+                    .Where(d => d.Id == selectedDepartmentId.Value)
+                    .Select(d => d.Allowance)
+                    .FirstOrDefaultAsync();
+
+                RemainingAllowance = SelectedDepartmentAllowance ?? 0;
             }
 
-            Grant = await query.ToListAsync();
+            if (minAvgRating.HasValue)
+            {
+                MinAvgRating = (minAvgRating / 100.0); // Normalize to 0–1 scale
 
-            await getApprovalRatingsAsync();
+                query = query.Where(g =>
+                    _context.GrantReview
+                        .Where(r => r.GrantID == g.Id)
+                        .GroupBy(r => r.GrantID)
+                        .Select(grp => grp.Average(r => r.ReviewScore))
+                        .FirstOrDefault() >= MinAvgRating);
+            }
 
-            // Sort grants by approval ratings (highest to lowest)
-            Grant = Grant.OrderByDescending(g => ApprovalRatings.ContainsKey(g.Id) ? ApprovalRatings[g.Id] : 0).ToList();
+            Console.Write("\n\nGet in Post called\n\n");
+
+            // Fetch the filtered grants
+            var filteredGrants = await query.Where(g => g.Status == "Approved").ToListAsync();
+
+            if (!filteredGrants.Any())
+            {
+                ErrorMessage = "No grants match the current filters.";
+                Console.WriteLine($"\n\n{ErrorMessage}\n\n");
+                return RedirectToPage(new { selectedDepartmentId, minAvgRating = minAvgRating * 100 });
+            }
+
+            // Populate approval ratings
+                var ratings = await _context.GrantReview
+                    .GroupBy(r => r.GrantID)
+                    .Select(g => new { g.Key, AvgRating = g.Average(r => r.ReviewScore) })
+                    .ToDictionaryAsync(g => g.Key, g => g.AvgRating / 54);
+
+                foreach (var grant in filteredGrants)
+                {
+                    Console.Write($"grantId, {grant.Id}");
+                    ApprovalRatings[grant.Id] = ratings.ContainsKey(grant.Id) ? ratings[grant.Id] : 0;
+                }
+
+
+            Console.WriteLine("\n\nApprovalRatings Key-Value Pairs:\n");
+            foreach (var kvp in ApprovalRatings)
+            {
+                Console.WriteLine($"Grant ID: {kvp.Key}, Approval Rating: {kvp.Value}");
+            }
+
+            decimal totalDeduction = 0m;
+
+            foreach (var grant in filteredGrants)
+            {
+                Console.WriteLine($"\nGrant ID: {grant.Id}, Title: {grant.Title}, Amount: {grant.Amount}, TotalAmount: {grant.TotalAmount}\n");
+
+                if (!ApprovalRatings.ContainsKey(grant.Id)) continue;
+                Console.Write("\n\nIt does?\n\n");
+
+                var avgRating = ApprovalRatings[grant.Id] * 100; // Convert back to percentage
+
+                foreach (var range in ranges)
+                {
+                    Console.WriteLine($"\range: {range}\n");
+                    if (avgRating >= range.Min && avgRating <= range.Max)
+                    {
+                        Console.Write("avgRating >= range.Min && avgRating <= range.Max");
+                        Console.Write($"{avgRating} >= {range.Min} && {avgRating} <= {range.Max} == {avgRating >= range.Min && avgRating <= range.Max}");
+                        var deduction = grant.Amount * (decimal)(range.Percentage / 100);
+
+                        if (RemainingAllowance < deduction)
+                        {
+                            ErrorMessage = "Insufficient funds in the department allowance.";
+                            Console.Write($"\n{ErrorMessage}\n");
+                            return RedirectToPage(new { selectedDepartmentId, minAvgRating = minAvgRating * 100 });
+                        }
+
+                        RemainingAllowance -= deduction;
+                        grant.TotalAmount += deduction; // Update grant's allocated amount
+                        totalDeduction += deduction;
+
+                        break; // Stop after applying the first matching range
+                    }
+                }
+            }
+
+            if (totalDeduction > 0)
+            {
+                await _context.SaveChangesAsync(); // Save changes to the database
+                ErrorMessage = null;
+            }
+            else
+            {
+                ErrorMessage = "No grants were updated. Verify ranges and filters.";
+            }
+
+            return RedirectToPage(new { selectedDepartmentId, minAvgRating = minAvgRating * 100 });
         }
 
-        /// <summary>
-        /// Does the math on all the grants as well as check for blank grant list
-        /// </summary>
-        /// <returns></returns>
-        public async Task getApprovalRatingsAsync()
+
+        private async Task GetApprovalRatingsAsync()
         {
-            // Prevents race conditions when grants is not populated when filtering
-            if (Grant == null || !Grant.Any())
-            {
-                ApprovalRatings.Clear();
-                return;
-            }
+            var ratings = await _context.GrantReview
+                .GroupBy(r => r.GrantID)
+                .Select(g => new { g.Key, AvgRating = g.Average(r => r.ReviewScore) })
+                .ToDictionaryAsync(g => g.Key, g => g.AvgRating / 54);
 
-            // Querying the data
-            var reviewStatsQuery = _context.GrantReview
-                .GroupBy(gr => gr.GrantID)
-                .Select(group => new
-                {
-                    GrantId = group.Key,
-                    ApprovalRating = group.Average(gr => gr.ReviewScore),
-                    ReviewCount = group.Count()
-                });
-
-            var reviewStats = await reviewStatsQuery.ToDictionaryAsync(x => x.GrantId, x => new { x.ApprovalRating, x.ReviewCount });
-
-            // Doing the math on the review scores
             foreach (var grant in Grant)
             {
-                if (reviewStats.TryGetValue(grant.Id, out var stats))
-                {
-                    // NOTE: The score is currently based on a whole number that has a MAX of 54
-                    // (the math takes the total # of reviews and then multiplies by max score and then divides the total score)
-                    ApprovalRatings[grant.Id] = stats.ApprovalRating / (stats.ReviewCount * 54);
-
-                }
-                else // If there are no reviews
-                {
-                    ApprovalRatings[grant.Id] = 0;
-                }
+                ApprovalRatings[grant.Id] = ratings.ContainsKey(grant.Id) ? ratings[grant.Id] : 0;
             }
         }
+    }
 
-
-        /// <summary>
-        /// Approval function for approve button
-        /// </summary>
-        /// <param name="grantId"></param>
-        /// <returns></returns>
-        public async Task<IActionResult> OnPostApproveGrantAsync(int grantId)
-        {
-            // Catching invalid grants
-
-            var grant = await _context.Grant.FindAsync(grantId);
-            if (grant == null)
-            {
-                return NotFound();
-            }
-
-            // Update the status to "Approved"
-            grant.Status = "Approved";
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage(); // Refresh the page
-        }
-
-        /// <summary>
-        /// Denial function for deny button
-        /// </summary>
-        /// <param name="grantId"></param>
-        /// <returns></returns>
-        public async Task<IActionResult> OnPostDenyGrantAsync(int grantId)
-        {
-            // Catching invalid grants
-            var grant = await _context.Grant.FindAsync(grantId);
-            if (grant == null)
-            {
-                return NotFound();
-            }
-
-            // Update the status to "Denied"
-            grant.Status = "Denied";
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage(); // Refresh the page
-        }
-
+    public class RangeDto
+    {
+        public double Min { get; set; }
+        public double Max { get; set; }
+        public double Percentage { get; set; }
     }
 }

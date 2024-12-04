@@ -18,6 +18,8 @@ namespace CS4760Group1.Models
         [Required]
         public string? Location { get; set; }
 
+        public decimal Allowance { get; set; }
+
 
     }
 }
