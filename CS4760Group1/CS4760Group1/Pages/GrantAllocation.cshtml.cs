@@ -75,7 +75,13 @@ namespace CS4760Group1.Pages
                         .Where(r => r.GrantID == g.Id)
                         .GroupBy(r => r.GrantID)
                         .Select(grp => grp.Average(r => r.ReviewScore))
-                        .FirstOrDefault() >= MinAvgRating);
+                        .FirstOrDefault() >= (MinAvgRating * 54))
+                       .OrderByDescending(g =>
+                    _context.GrantReview
+                        .Where(r => r.GrantID == g.Id)
+                        .GroupBy(r => r.GrantID)
+                        .Select(grp => grp.Average(r => r.ReviewScore))
+                        .FirstOrDefault()); ;
             }
 
             Grant = await query.Where(g => g.Status == "Approved").ToListAsync();
@@ -195,6 +201,16 @@ namespace CS4760Group1.Pages
 
             if (totalDeduction > 0)
             {
+                if (selectedDepartmentId.HasValue)
+                {
+                    var department = await _context.Department.FindAsync(selectedDepartmentId.Value);
+                    if (department != null)
+                    {
+                        department.Allowance = RemainingAllowance;
+                        Console.WriteLine($"Updated Department Allowance: {department.Allowance}");
+                    }
+                }
+
                 await _context.SaveChangesAsync(); // Save changes to the database
                 ErrorMessage = null;
             }

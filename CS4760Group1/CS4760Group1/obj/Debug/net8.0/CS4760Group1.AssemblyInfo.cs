@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CS4760Group1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d8c61744b99f68316e5bf2e02798dfb0e271c1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f44058e9256072e48df8c2523b2c26deb1bcec6")]
 [assembly: System.Reflection.AssemblyProductAttribute("CS4760Group1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CS4760Group1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
