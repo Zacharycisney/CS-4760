@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {}
+    "C:\\Users\\lphon\\Downloads\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {
+    "C:\\Users\\lphon\\Downloads\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
+        "projectUniqueName": "C:\\Users\\lphon\\Downloads\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
         "projectName": "CS4760Group1",
-        "projectPath": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
-        "packagesPath": "C:\\Users\\carsonmoore\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carsonmoore\\Source\\Repos\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\",
+        "projectPath": "C:\\Users\\lphon\\Downloads\\CS-4760\\CS4760Group1\\CS4760Group1\\CS4760Group1.csproj",
+        "packagesPath": "C:\\Users\\lphon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lphon\\Downloads\\CS-4760\\CS4760Group1\\CS4760Group1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carsonmoore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lphon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
