@@ -28,6 +28,8 @@ namespace CS4760Group1.Pages
 
         [BindProperty]
         public Grant Grant { get; set; }
+        [BindProperty]
+        public GrantDraft GrantDraft { get; set; }
         public List<SelectListItem> UserList { get; set; }
 
         [BindProperty]
@@ -44,6 +46,9 @@ namespace CS4760Group1.Pages
         public List<GrantType> AppliedGrant { get; set; }
         public IList<Department> Department { get; set; } = new List<Department>();
         public IList<College> College { get; set; } = new List<College>();
+
+        [BindProperty]
+        public bool IsDraft { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -136,49 +141,84 @@ namespace CS4760Group1.Pages
             Department = await _context.Department.ToListAsync();
             College = await _context.College.ToListAsync();
 
-            if (Grant.Id > 0) // Check if we're in edit mode
+            
+
+            if (IsDraft) // If it's a draft submission
             {
-                // Edit mode: load existing grant and update its properties
-                var existingGrant = await _context.Grant.FirstOrDefaultAsync(g => g.Id == Grant.Id);
-                if (existingGrant == null)
+                ModelState.Clear();
+
+                // Create a new GrantDraft model and map the properties from the Grant model
+                GrantDraft grantDraft = new GrantDraft
                 {
-                    return NotFound("The grant was not found for editing.");
-                }
+                    Title = Grant.Title,
+                    PI = Grant.PI,
+                    Description = Grant.Description,
+                    Type = Grant.Type,
+                    Amount = Grant.Amount,
+                    Status = "Draft",  // Draft status
+                    SubType = Grant.SubType,
+                    Season = Grant.Season,
+                    AmountFromOther = Grant.AmountFromOther,
+                    TotalAmount = Grant.TotalAmount,
+                    CollegeID = Grant.CollegeID,
+                    DepartmentID = Grant.DepartmentID,
+                    ProcMethod = Grant.ProcMethod,
+                    Timeline = Grant.Timeline,
+                    Index = Grant.Index,
+                    SubjectNeeded = Grant.SubjectNeeded
+                };
 
-                // Update existing grant properties
-                existingGrant.Title = Grant.Title;
-                existingGrant.PI = Grant.PI;
-                existingGrant.Description = Grant.Description;
-                existingGrant.Type = Grant.Type;
-                existingGrant.Amount = Grant.Amount;
-                existingGrant.SubType = Grant.SubType;
-                existingGrant.Season = Grant.Season;
-                existingGrant.AmountFromOther = Grant.AmountFromOther;
-                existingGrant.TotalAmount = Grant.TotalAmount;
-                existingGrant.CollegeID = Grant.CollegeID;
-                existingGrant.DepartmentID = Grant.DepartmentID;
-                existingGrant.ProcMethod = Grant.ProcMethod;
-                existingGrant.Timeline = Grant.Timeline;
-                existingGrant.Index = Grant.Index;
-                existingGrant.SubjectNeeded = Grant.SubjectNeeded;
-
-                // Attach and mark as modified
-                _context.Attach(existingGrant).State = EntityState.Modified;
+                // Add the draft to the database
+                _context.GrantDraft.Add(grantDraft);
             }
             else
             {
-                // Create mode: add a new grant with default status
-                Grant.Status = "Not Reviewed";
-                _context.Grant.Add(Grant);
+
+                if (Grant.Id > 0) // Check if we're in edit mode for already submitted grants (NOT drafts)
+                {
+                    // Edit mode: load existing grant and update its properties
+                    var existingGrant = await _context.Grant.FirstOrDefaultAsync(g => g.Id == Grant.Id);
+                    if (existingGrant == null)
+                    {
+                        return NotFound("The grant was not found for editing.");
+                    }
+
+                    // Update existing grant properties
+                    existingGrant.Title = Grant.Title;
+                    existingGrant.PI = Grant.PI;
+                    existingGrant.Description = Grant.Description;
+                    existingGrant.Type = Grant.Type;
+                    existingGrant.Amount = Grant.Amount;
+                    existingGrant.SubType = Grant.SubType;
+                    existingGrant.Season = Grant.Season;
+                    existingGrant.AmountFromOther = Grant.AmountFromOther;
+                    existingGrant.TotalAmount = Grant.TotalAmount;
+                    existingGrant.CollegeID = Grant.CollegeID;
+                    existingGrant.DepartmentID = Grant.DepartmentID;
+                    existingGrant.ProcMethod = Grant.ProcMethod;
+                    existingGrant.Timeline = Grant.Timeline;
+                    existingGrant.Index = Grant.Index;
+                    existingGrant.SubjectNeeded = Grant.SubjectNeeded;
+
+                    // Attach and mark as modified
+                    _context.Attach(existingGrant).State = EntityState.Modified;
+                }
+                else
+                {
+                    // Create mode: add a new grant with default status
+                    Grant.Status = "Not Reviewed";
+                    _context.Grant.Add(Grant);
+                }
+
+                // Save each uploaded file
+                await SaveFiles(Grant);
             }
 
             // Save changes to database to assign Grant.Id if it's a new grant
             await _context.SaveChangesAsync();
 
-            // Save each uploaded file
-            await SaveFiles(Grant);
+            
 
-            await _context.SaveChangesAsync();
 
             return RedirectToPage("Index");
         }

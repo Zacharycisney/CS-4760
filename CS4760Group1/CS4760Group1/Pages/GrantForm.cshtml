@@ -10,6 +10,8 @@
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="Grant.Id" />
+            <input asp-for="IsDraft" type="hidden" id="IsDraft" name="IsDraft" value="false" />
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Grant.Title" class="control-label">Title:</label>
@@ -32,17 +34,17 @@
             <div class="form-group">
                 <label class="control-label">Select College:</label>
                 <select id="collegeSelect" class="form-control" asp-for="Grant.CollegeID" asp-items="@(new SelectList(Model.College, "Id", "Name"))">
-                    <option>Select College</option>
+                    <option value="">Select College</option>
                 </select>
-                <span class="text-danger"></span>
+                <span asp-validation-for="Grant.CollegeID" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label class="control-label">Department:</label> <!-- Needs to be able to be filtered by what College is selected -->
                 <select id="departmentSelect" class="form-control" asp-for="Grant.DepartmentID" asp-items="@(new SelectList(Model.Department, "Id", "Name"))">
-                    <option>Select Department</option>
+                    <option value="">Select Department</option>
                 </select>
-                <span class="text-danger"></span>
+                <span asp-validation-for="Grant.DepartmentID" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -58,39 +60,40 @@
             <div class="form-group">
                 <label class="control-label">Grant Season:</label> 
                 <select id="grantSeason" class="form-control" asp-for="Grant.Season">
-                    <option>Select Season</option>
+                    <option value="">Select Season</option>
                     <option value="fall">Fall</option>
                     <option value="spring">Spring</option>
                     <option value="travel">Travel</option>
                 </select>
-                <span class="text-danger"></span>
+                <span asp-validation-for="Grant.Season" class="text-danger"></span>
             </div>
 
             <div class="form-group"> <!-- Needs to be able to be filtered by what season is selected -->
                 <label class="control-label">Grant Subtype:</label>
                 <select id="grantSubType" class="form-control" asp-for="Grant.SubType" asp-items="@(new SelectList(Model.AppliedGrant, "applyingFor", "applyingFor"))">
-                    <option>Select Subtype</option>
+                    <option value="">Select Subtype</option>
                 </select>
-                <span class="text-danger"></span>
+
+                <span asp-validation-for="Grant.SubType" class="text-danger"></span>
             </div>
 
             <!-- Needs Amnt from RSPG, From other, And total amount. Auto populated from resouces page-->
 
             <div class="form-group"> 
                 <label asp-for="Grant.Amount" class="control-label">Amount requested from RSPG:</label>
-                <input asp-for="Grant.Amount" class="form-control" />
+                <input asp-for="Grant.Amount" id="Grant_Amount" oninput="updateTotal()" class="form-control" />
                 <span asp-validation-for="Grant.Amount" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Grant.AmountFromOther" class="control-label">Amount requested from other:</label>
-                <input asp-for="Grant.AmountFromOther" class="form-control" />
+                <input asp-for="Grant.AmountFromOther" id="Grant_AmountFromOther" oninput="updateTotal()" class="form-control" />
                 <span asp-validation-for="Grant.AmountFromOther" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="Grant.TotalAmount" class="control-label">Total Amount:</label>
-                <input asp-for="Grant.TotalAmount" class="form-control" />
+                <input asp-for="Grant.TotalAmount" id="Grant_TotalAmount" class="form-control" readonly />
                 <span asp-validation-for="Grant.TotalAmount" class="text-danger"></span>
             </div>
 
@@ -145,14 +148,14 @@
                 <input type="file" name="ApprovalUpload" id="ApprovalUpload" class="form-control" required />
             </div>
 
-
-
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="submit" id="SubmitButton" name="action" value="Create" class="btn btn-primary">Submit Grant</button>
+
+                @if (Model.Grant.Id == 0) // Check if it's in create mode
+                {
+                    <button type="submit" id="SaveDraftButton" name="action" value="saveDraft" class="btn btn-secondary">Save as Draft</button>
+                }
             </div>
-
-            
-
         </form>
     </div>
 </div>
@@ -169,22 +172,23 @@
 
     <script>
 
+        document.getElementById("SaveDraftButton").addEventListener("click", function () {
+            document.getElementById("IsDraft").value = "true";
+        });
+
         function updateTotal() {
             // Get values of Amount and AmountFromOther
-            const amount = parseFloat(document.getElementById("GrantDraft_Amount").value) || 0;
-            const amountFromOther = parseFloat(document.getElementById("GrantDraft_AmountFromOther").value) || 0;
+            const amount = parseFloat(document.getElementById("Grant_Amount").value) || 0;
+            const amountFromOther = parseFloat(document.getElementById("Grant_AmountFromOther").value) || 0;
 
             // Calculate the total
             const totalAmount = amount + amountFromOther;
 
             // Set the calculated total as the value of the TotalAmount input
-            document.getElementById("GrantDraft_TotalAmount").value = totalAmount.toFixed(2);
+            document.getElementById("Grant_TotalAmount").value = totalAmount.toFixed(2);
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-           
-
-
             var subjectCheckbox = document.getElementById('subjectNeeded');
             var approvalFormDiv = document.getElementById('approvalUpload');
 
