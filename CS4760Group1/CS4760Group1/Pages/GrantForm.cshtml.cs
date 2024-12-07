@@ -145,7 +145,19 @@ namespace CS4760Group1.Pages
 
             if (IsDraft) // If it's a draft submission
             {
-                ModelState.Clear();
+                ModelState.Remove("Grant.Description");
+                ModelState.Remove("Grant.Type");
+                ModelState.Remove("Grant.Amount");
+                ModelState.Remove("Grant.SubType");
+                ModelState.Remove("Grant.Season");
+                ModelState.Remove("Grant.AmountFromOther");
+                ModelState.Remove("Grant.TotalAmount");
+                ModelState.Remove("Grant.CollegeID");
+                ModelState.Remove("Grant.DepartmentID");
+                ModelState.Remove("Grant.ProcMethod");
+                ModelState.Remove("Grant.Timeline");
+                ModelState.Remove("Grant.Index");
+                ModelState.Remove("Grant.SubjectNeeded");
 
                 // Create a new GrantDraft model and map the properties from the Grant model
                 GrantDraft grantDraft = new GrantDraft
